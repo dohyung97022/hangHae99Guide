@@ -8,6 +8,7 @@
 * #### 공부   
     * 웹개발 좋합반 1주차
     * 웹개발 종합반 2주차
+    * 웹개발 종합반 3주차
 * #### 시스템   
     * 면접
 
@@ -52,11 +53,13 @@
           저는 react 부터 시작한 사람이라서   
           static website에 jQuery를 통한 웹 기능 구현에 익숙하지 않았습니다.   
           S3 같은 곳에 static website의 구현을 요구할 지도 모르는데   
-          아무리 현업이 react 범벅?이 되어 있다고 하더라도 이러한 방법을 이해하는 것도 중요하다고 생각됩니다.   
+          아무리 현업이 react 범벅?이 되어 있다고 하더라도 이러한 방법을   
+          이해하는 것도 중요하다고 생각됩니다.      
           간편하고 저렴하고 빠른 방법이 될 수 있겠다는 생각이 들었습니다.
             
         * #### 퀴즈
             * Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.
+              [저의 정답](sparta/frontend/02_jQuery_quiz.html)
             * ![](img/web_week_2_quiz.PNG)
           
       * #### Ajax, JSON
@@ -80,9 +83,7 @@
           API Hierarchy : jQuery.get/post > jQuery.ajax > XMLHttpRequest  
           참고 : [StackOverflow의 고인물들...](https://stackoverflow.com/questions/4657287/what-is-the-difference-between-xmlhttprequest-jquery-ajax-jquery-post-jquery)
         * #### 퀴즈
-            [서울 미세먼지 API](http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99)    
-            [따릉이 API](http://spartacodingclub.shop/sparta_api/seoulbike)   
-            [카와이한 고양이 API](https://api.thecatapi.com/v1/images/search)   
+            [서울 미세먼지 API](http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99), [따릉이 API](http://spartacodingclub.shop/sparta_api/seoulbike), [카와이한 고양이 API](https://api.thecatapi.com/v1/images/search)   
             위 API를 통하여 static website를 변동시키는 퀴즈였습니다.   
             [저의 정답](sparta/frontend/02_Ajax_quiz.html)   
             ![](img/web_week_2_quiz2.PNG)   
@@ -92,6 +93,135 @@
         * 1주차 때 만들었던 템플렛에 환율 정보를 추가하는 것이 숙제로 나왔습니다.   
         [저의 정답](sparta/frontend/02_homework.html)   
         ![](img/web_week_2_homework.PNG)
+          
+    * ### 웹개발 종합반 3주차
+      * #### Python / BeautifulSoup
+        * #### 수업에서 제공된 내용
+          `list = ['l','i','s','t']`   
+          `dictionary = {'id':value}` `dictionary['id'] = value`
+          ```
+          def func(param):
+            return param
+          ```
+          ```
+          if a > 20:
+            print(a)
+          ```
+          ```
+          for c in ['l','i','s','t']:
+            print(c)
+          ```
+          ```
+          for c in [{name:kim,age:25},{name:jun,age:23},{name:min,age:20}]:
+            print...
+          ```
+          `pip install`   
+          ```
+          import requests
+          reqJson = request.get('url').json()
+          ```   
+          ```
+          import beautifulSoup
+          soup = BeautifulSoup(reqJson.text,'html.parser')
+          soup.select_one('#id > .class > div')
+          ```
+        * #### 느낀 점
+          * 저는 크롤링/스크레이핑을 사랑합니다. 반가운 내용이 나왔네요.   
+            그 외에는 기본적인 python 지식, 자료구조를 가볍게 넘어갑니다.   
+            수업 내용은 쉬운 편입니다.   
+            혹여나 크롤링/스크레이핑에 관심이 많으신 분이 게신다면 저만의 작은 팁이 있습니다.   
+            같은 ip 주소에서 지속적으로 request를 보낼 경우 차단될 확률이 매우 높습니다.   
+            그래서 ip를 우회해야 하는데, 저는 이 해결 방법으로 AWS lambda를 추천드립니다.  
+            lambda는 5분마다 AWS ip pool에서 지속적으로 ip를 순환합니다.   
+            심지어 더 많은 ip가 필요하시다면 그냥 코드로 lambda를 생성할 수 있습니다.   
+            AWS SDK에서 async invocation도 가능해서 많은 request를 동시다발적으로 받을 수 있습니다.   
+            핵꿀팁이라서 이 글을 읽으시는 분들에게만 드립니다... ㅋㅋ   
+            저만 알고있는 꿀팁 맞죠? ;;;;
+            
+      * #### Python / pymongo (mongoDB)
+        * #### 수업에서 제공된 내용
+          ```
+          from pymongo import MongoClient
+
+          client = MongoClient('localhost', 27017)
+          db = client.schema
+          ```
+          
+          ```
+          # insert
+          doc = {'name': 'kim', 'age': 25}
+          db.users.insert_one(doc)
+          doc = [{'name': 'min', 'age': 20}, {'name': 'jun', 'age': 23}]
+          db.users.insert_many(doc)
+          ```
+          ```
+          # find
+          same_ages = list(db.users.find({'age': 21}, {'_id': False}))
+          user = db.users.find_one({'name': 'bobby'}, {'_id': False})
+          ```
+          ```
+          # update
+          db.users.update_one({'name': 'bobby'}, {'$set': {'age': 19}})
+          db.users.update_many({'age': 19}, {'$set': {'name': 'adult'}})
+          ```
+          ```
+          # delete
+          db.users.delete_one({'name': 'bobby'})
+          ``` 
+        * #### 느낀 점
+          pymongo의 CURD 기능에 대한 소개와   
+          스크레이핑을 통해 받은 정보를 저장합니다.   
+          
+        * #### 퀴즈
+          [저의 정답](sparta/backend/python/03_python_MongoDB_Quiz.py)   
+          퀴즈는 메트릭스의 평점을 scraping 하는 것입니다.   
+          이미 제공되고 해설하는 문제를 푸는 것은 좋지 않다고 생각되어   
+          네이버의 최신 영화 api를 훔쳐?보도록 하겠습니다.   
+          [네이버의 backend](https://m.search.naver.com/p/csearch/content/qapirender.nhn?_callback=___MovieAPIforPList_key_68_pkid_nexearch_where_1_start_8_display_s1_dsc_so_%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94_q&key=MovieAPIforPList&pkid=68&where=nexearch&start=1&display=8&so=s1.dsc&q=%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94)
+          는 url의 where 이후의 숫자와, &start의 파라미터의   
+          숫자에 따라 결과를 달리합니다.
+          ```
+          for x in ['1', '9', '17', '25', '33']:
+          reqHtml = requests.get(
+          'https://m.search.naver.com/p/csearch/content/qapirender.nhn?_callback=___MovieAPIforPList_key_68_pkid_nexearch_where_' 
+          + x
+          + '_start_8_display_s1_dsc_so_%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94_q&key=MovieAPIforPList&pkid=68&where=nexearch&start=' 
+          + x
+          + '&display=8&so=s1.dsc&q=%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94')
+          ``` 
+          다음과 같이 웹에서 사용되는 것을 따라하여 8씩 증가하며 get을 하였습니다.   
+          그 이후 beautifulsoup을 사용하려고 하였지만 html에 특화되어 있어   
+          Json api call을 받아들이지 못해 그냥 regex를 사용하였습니다.   
+          regex 애용한답니다. ㅋㅋ   
+          ```
+          'this_text _text\\\\">([^<]+)'
+          ```
+          결과   
+          ![](img/back_week_3_quiz.PNG)
+          그 이후 형식을 변환하고 저장합니다.
+          ```
+          # array 형식을 dictionary 형식으로 바꾼다.
+          movieDicArr = []
+          for movieName in movieArr:
+          movieDicArr.append({'name': movieName})
+          
+          # 저장한다.
+          db.users.insert_many(movieDicArr)
+          ```
+          결과   
+          ![](img/back_week_3_quiz2.PNG)
+        
+      * #### 숙제
+        지니뮤직에서 top 50 곡과 그 아티스트를 받는 숙제입니다.   
+        [저의 정답](sparta/backend/python/03_homework.py)   
+        ```
+        titles = re.findall('class="albumtitle[^>]+>([^<]+)<', reqHtml.text)
+        artist = re.findall('class="artist[^>]+>([^<]+)<', reqHtml.text)
+        ```
+        이것도 regex를 사용하여 간단히 했습니다.   
+        
+ 
+            
         
             
 * ## 시스템
