@@ -58,8 +58,8 @@
           간편하고 저렴하고 빠른 방법이 될 수 있겠다는 생각이 들었습니다.
             
         * #### 퀴즈
-            * Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.
-              [저의 정답](sparta/frontend/02_jQuery_quiz.html)
+            * Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.   
+              [저의 정답](sparta/frontend/02_jQuery_quiz.html)   
             * ![](img/web_week_2_quiz.PNG)
           
       * #### Ajax, JSON
