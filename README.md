@@ -218,9 +218,89 @@
         titles = re.findall('class="albumtitle[^>]+>([^<]+)<', reqHtml.text)
         artist = re.findall('class="artist[^>]+>([^<]+)<', reqHtml.text)
         ```
-        이것도 regex를 사용하여 간단히 했습니다.   
-        
- 
+        이것도 regex를 사용하여 간단히 했습니다.
+    
+    * ### 웹개발 종합반 4주차
+      * #### Flask
+        * #### 수업에서 제공된 내용
+        기본 틀
+        ```
+        from flask import Flask
+
+        app = Flask(__name__)
+
+        @app.route('/')
+        def home():
+          return 'This is Home!'
+
+        if __name__ == '__main__':
+          app.run('0.0.0.0', port=5000, debug=True)
+        ```
+        html 템플릿 리턴
+        ```
+        from flask import Flask, render_template
+        @app.route('/')
+        def home():
+          return render_template('index.html')
+        ```
+        Get request와 ?parameter 받기
+        ```
+        @app.route('/test', methods=['GET'])
+        def test_get():
+          parameter = request.args.get('parameter')
+          return jsonify({'result': 'success', 'msg': '이걸 주셨나요?' + parameter})
+        ``` 
+        Post request와 body parameter 받기
+        ```
+        @app.route('/test', methods=['POST'])
+        def test_post():
+          post_body_parameter = request.form['body_parameter']
+          return jsonify({'result': 'success', 'msg': '이 요청을 주셨나요?' + post_body_parameter})
+        ```
+        * #### 느낀 점
+          이번 시간에는 플라스크의 파일구조와   
+          Get/Post request와 url parameter, body parameter를 받는 방법을 배웠습니다.   
+          그런데 세상에 마상에...   
+          이렇게 간략한 프레임워크가 있다구요?   
+          스프링으로는 최소한 `@Entity`, `@Repository`, `@Service`   
+          로 구성된 틀을 짜야 하는데... 여기에서는 7줄로 서버가 완성되는 magic 이 일어나고 있습니다.   
+          그러나!!!!   
+          플라스크보다 스프링이 좋은 이유들도 있습니다.   
+          * 스프링의 경우 database integration이 되어 있습니다.
+          * 객체 지향적이여서 파일 정리가 쉽습니다.
+          * 데이터베이스 또한 하나의 객체로 봅니다.
+          * 속도가 스프링이 더 빠릅니다.   
+          ![](img/web_week_4_speed.PNG)   
+            Go 가 제일 빠른데 취직 자리도 없다는게 함정... 슬프다...   
+            그냥 spring으로 시작할껄...
+            
+        * #### Flask + MongoDB + Ajax + jQuery + beautifulSoup
+          * #### 수업에서 제공된 내용
+            위에서 배운 모든 내용들을 종합하는 내용이였습니다.  
+            <br>
+            1. Flask로 api를 연다.   
+            2. MongoDB로 저장하는 api route를 연다.
+            3. Ajax와 jQuery로 parameter로 받는다.   
+            4. frontend에 표시한다.
+            5. Scraping 또한 활용한다.   
+            
+          * #### 느낀 점
+            프로젝트를 전체적으로 설계/조립하는 것만큼 [satisfaction](https://www.youtube.com/watch?v=a0fkNdPiIL4) 한 것은 없습니다.   
+            또한 이번 수업에서 들어 내용 중에 카카오톡이 어떻게   
+            ![](img/web_week_4_kacao.PNG)   
+            이러한 기능을 구현한 것인지에 대한 예기가 있었습니다.   
+            meta 태그에 이러한 정보들을 넣는 것이 웹의 보편적인 약속인 것을 처음 알았습니다.   
+            제 project엔 이런것도 안 넣었는데...   
+            조금 공부할 필요가 있네요.   
+            [구글/카톡을 위한 react에서 meta tag 지정 방법](https://satisfactoryplace.tistory.com/150)   
+            <br/>
+            저의 개인적인 감상은 그만두고 조금 더 보편적으로 이야기하자면   
+            오늘은 정말 유용한 강의였습니다.   
+            어느정도 웹의 부분을 이해하는 사람이라면  
+            조금 더 큰 그림을 보여주는 강의였다고 생각합니다.   
+            게다가 프로젝트도 2개나 보여줍니다.   
+            ![](img/web_week_4_bookstore.PNG)
+            
             
         
             
