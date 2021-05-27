@@ -273,18 +273,17 @@
           ![](img/web_week_4_speed.PNG)   
             Go 가 제일 빠른데 취직 자리도 없다는게 함정... 슬프다...   
             그냥 spring으로 시작할껄...
-            
-        * #### Flask + MongoDB + Ajax + jQuery + beautifulSoup
-          * #### 수업에서 제공된 내용
+        
+      * #### Flask + MongoDB + Ajax + jQuery + beautifulSoup
+        * #### 수업에서 제공된 내용
             위에서 배운 모든 내용들을 종합하는 내용이였습니다.  
             <br>
             1. Flask로 api를 연다.   
             2. MongoDB로 저장하는 api route를 연다.
             3. Ajax와 jQuery로 parameter로 받는다.   
             4. frontend에 표시한다.
-            5. Scraping 또한 활용한다.   
-            
-          * #### 느낀 점
+            5. Scraping 또한 활용한다.
+        * #### 느낀 점
             프로젝트를 전체적으로 설계/조립하는 것만큼 [satisfaction](https://www.youtube.com/watch?v=a0fkNdPiIL4) 한 것은 없습니다.   
             또한 이번 수업에서 들어 내용 중에 카카오톡이 어떻게   
             ![](img/web_week_4_kacao.PNG)   
@@ -296,11 +295,16 @@
             <br/>
             저의 개인적인 감상은 그만두고 조금 더 보편적으로 이야기하자면   
             오늘은 정말 유용한 강의였습니다.   
-            어느정도 웹의 부분을 이해하는 사람이라면  
+            어느정도 웹의 특정 부분만 이해하는 사람이라면  
             조금 더 큰 그림을 보여주는 강의였다고 생각합니다.   
-            게다가 프로젝트도 2개나 보여줍니다.   
+            프로젝트도 2개나 보여줍니다.   
             ![](img/web_week_4_bookstore.PNG)
+          
+      * #### 숙제
+        [나의 정답]()   
+        이번에는
             
+        
             
         
             
