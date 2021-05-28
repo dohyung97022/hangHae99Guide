@@ -337,9 +337,96 @@
         ![](img/web_week_4_homework3.PNG)   
         저장된 정보를 아래에 표시되게 하는 것입니다.   
         <br>
-            
         
-            
+    * ### 웹개발 종합반 5주차
+      * #### 4주차 복습
+        * <details open>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+
+          pymongodb에서의 sort
+          ```
+          mycol = db["database"]
+          sorted = mycol.find().sort("name" , -1)
+          ```
+          moviestar html template, backend 예시   
+          ![](img/web_week_5_moviestar.PNG)
+          
+          Static html에서 reload 하는 방법
+          ```
+          window.location.reload()
+          ```
+          </details>
+          <br>
+        * <details open>
+          <summary>느낀 점</summary>
+          <br>
+          
+          이번 수업에서는 1~4주차까지의 내용을 모두 활용하는 내용이였습니다.   
+          좋아요를 누르면 그 개인의 순위가 위로 올라가는 기능을 구현하지만   
+          결국 활용하는 내용은 같아 복습한다는 느낌으로 진행됩니다.
+          </details>
+          <br>
+        
+      * #### AWS
+        * <details open>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          EC2 구매하기   
+          SSH 하는 방법   
+          FTP (filezilla) 사용하기   
+          가벼운 linux terminal commands   
+          `mkdir`, `chmod`, `cd`, `ls -la`
+          
+          EC2에서 flask, mongoDB 활용하기   
+          EC2 Security group   
+          shell 파일을 통한 설치 자동화   
+          ![](img/back_week_5_sh.PNG)   
+          nohub를 통한 배포의 지속   
+          `nohup python app.py &`   
+          Process 번호를 찾는 방법, 프로세스 중지 방법   
+          `ps -ef`
+          `ps -ef | grep 'app.py'`
+          `kill -9 105929`   
+          도메인 등록, 연결   
+          </details>
+          <br>
+          
+        * <details open>
+          <summary>느낀 점</summary>
+          <br>
+          
+          초보자 분들을 위한 강의로는 손색이 없을 정도로 좋습니다.  
+          [동빈나님](https://www.youtube.com/channel/UChflhu32f5EUHlY7_SetNWw) 이나 [생활코딩님](https://www.youtube.com/user/egoing2) 
+          의 팬이라면 이미 아시는 내용일 수도 있습니다.   
+          저는 ec2와 AWS를 활용한 배포는 [시험 공부](https://github.com/dohyung97022/awsGuide) 나 [프로젝트](https://github.com/dohyung97022/ADIY) 를 해서 많이 알고 있지만   
+          그럼에도 다른 프레임워크인 flask나 mongoDB를 통한 배포는 색다른 느낌을 주었습니다.
+          
+          경험자 비 경험자 모두 추천드리는 좋은 강의였습니다.   
+          
+          보통은 AWS RDS에 데이터베이스를 따로 만들고 EC2와 분리하지만   
+          이번 강의는 하나의 EC2에 데이터베이스 + backend + frontend를 모두 통합합니다.
+          
+          너무 좋은 강의였음에도 불구하고 아쉬운 점을 추가하자면...   
+          CORS에 대한 내용이 없어 초보자 분들이 해맬 수 있다고 생각했습니다.   
+          보통 도메인을 변경하게 되면 모든 html이나 application의 도메인을 일치시켜여 하는데   
+          이전에 숙제를 한 localhost나 EC2의 IP로 접근할 경우 CORS가 뜨며 오류가 발생합니다.   
+          이점을 조금 더 개인적으로 공부하시면서 보완하신다면 좋을 것 같습니다.   
+          </details>
+          <br>
+  
+      * <details open>
+        <summary>숙제</summary>
+        <br>
+
+        숙제는 수업 내용의 url을 제출하는 것이였습니다.   
+        http://www.herokusu.com:5000/ 제 숙제의 링크입니다.   
+        IE로 접근하시면 database 가 연결이 안됩니다...   
+        어짜피 IE 사용하는 분들 없죠?      
+        ![](img/web_week_5_homework.PNG)
+        </details>
+        <br>
         
             
 * ## 시스템
@@ -365,3 +452,17 @@
             * 최종 합격이 되었다는 카톡이 오고 결제를 완료하시면 이런 카톡이 옵니다.   
             카톡을 받은 이후 항해99 슬랙에 가입하라는 문자가 몇 일 이후에 왔습니다.
             * ![](img/최종합격.jpg)
+
+
+<br>
+
+드랍다운으로 전환한다면 다음을 사용하시오
+```
+<details open>
+<summary>드랍다운</summary>
+<br>
+
+드랍다운 내용
+</details>
+<br>
+```
