@@ -36,7 +36,10 @@
     
     * ### 웹개발 종합반 2주차
       * #### jQuery
-        * #### 수업에서 제공된 내용   
+        * <details open>
+            <summary>수업에서 제공된 내용</summary>
+          <br>
+          
           * `https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js`
           * `$('#idselector')`
           * `$('#idselector').hide`
@@ -47,7 +50,12 @@
           * `$('#idselector').css("cssAtribute")`
           * `let tmp_btn = <button>click</button>` `$('#idselector').append(tmp_btn)`
           * `$('#idselector').empty()`
-        * #### 느낀 점
+          </details>
+          <br>
+
+        * <details open>
+            <summary>느낀 점</summary>
+
           제공된 [html template](sparta\frontend\02_article.html)에서 `$('selector')`를 통해 사용할 수 있는 기능들에 대하여 배웠습니다.   
           jQuery는 javascript의 코드를 간략하게 하기 위한 라이브러리입니다.   
           저는 react 부터 시작한 사람이라서   
@@ -56,12 +64,18 @@
           아무리 현업이 react 범벅?이 되어 있다고 하더라도 이러한 방법을   
           이해하는 것도 중요하다고 생각됩니다.      
           간편하고 저렴하고 빠른 방법이 될 수 있겠다는 생각이 들었습니다.
-            
-        * #### 퀴즈
-            * Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.   
-              [저의 정답](sparta/frontend/02_jQuery_quiz.html)   
-            * ![](img/web_week_2_quiz.PNG)
+          </details>
+          <br>
+  
+        * <details open>
+            <summary>퀴즈</summary>
           
+          [저의 정답](sparta/frontend/02_jQuery_quiz.html)   
+          Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.
+          ![](img/web_week_2_quiz.PNG)
+          </details>
+          <br>
+  
       * #### Ajax, JSON
         * #### 수업에서 제공된 내용
           * 특정 url에서 Get 받기
