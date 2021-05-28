@@ -86,14 +86,30 @@
         //Get
         function order_listing() {
             // 주문목록 보기 API 연결
-						$.ajax({
+				$.ajax({
                 type: "GET",
                 url: "http://localhost:5000/order",
                 data: {},
                 success: function (response) {
-                    console.log(response);
-                    let tmp_btn = '<tr><th scope="row">테스트</th><td>124</td><td>서울시 강남구</td><td>010-5436-7442</td></tr>';
-                    $('tbody').append(tmp_btn);
+                    for (i=0; i<response['result'].length; i++){
+                        let tmp_btn = `
+                        <tr>
+                            <th scope="row">
+                                ${response['result'][i]['name']}
+                            </th>
+                            <td>
+                                ${response['result'][i]['order_count']}
+                            </td>
+                            <td>
+                                ${response['result'][i]['order_address']}
+                            </td>
+                            <td>
+                                ${response['result'][i]['order_phone']}
+                            </td>
+                        </tr>
+                        `;
+                        $('tbody').append(tmp_btn);
+                    }
                 }
             })
         }
@@ -101,7 +117,7 @@
         //Post
         function order() {
             // 주문하기 API 연결
-						$.ajax({
+				$.ajax({
                 type: "POST",
                 url: "http://localhost:5000/order",
                 data: {
@@ -110,7 +126,7 @@
                     'order-address' : $('#order-address').val(),
                     'order-phone' : $('#order-phone').val(),
                 },
-                success: function (response) { // 성공하면
+                success: function (response) {
                     alert(response["주문이 성공적으로 이뤄졌습니다."]);
                 }
             })
@@ -172,24 +188,6 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr>
-		      <th scope="row">홍길동</th>
-		      <td>1</td>
-		      <td>서울시 동작구</td>
-		      <td>010-1234-5678</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">신사임당</th>
-		      <td>2</td>
-		      <td>서울시 영등포구</td>
-		      <td>010-1234-5678</td>
-		    </tr>
-		    <tr>
-		      <th scope="row">장영실</th>
-		      <td>1</td>
-		      <td>부산시 중구</td>
-		      <td>010-1234-5678</td>
-		    </tr>
 		  </tbody>
 		</table>
 </div>

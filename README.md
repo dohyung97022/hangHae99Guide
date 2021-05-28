@@ -297,12 +297,32 @@
             오늘은 정말 유용한 강의였습니다.   
             어느정도 웹의 특정 부분만 이해하는 사람이라면  
             조금 더 큰 그림을 보여주는 강의였다고 생각합니다.   
-            프로젝트도 2개나 보여줍니다.   
-            ![](img/web_week_4_bookstore.PNG)
+            전체적인 구조를 보여주는 프로젝트도 2개나 보여줍니다.   
+            <br>
+            frontend + backend + mongoDB
+          
+            ![](img/web_week_4_bookstore.PNG)   
+            <br>
+            frontend + backend + mongoDB + beautifulSoup
+            ![](img/web_week_4_memo.PNG)
           
       * #### 숙제
-        [나의 정답]()   
-        이번에는
+        나의 정답 [index.html](sparta/backend/python/04_homework/templates/index.html) / [app.py](sparta/backend/python/04_homework/app.py)   
+        이번에는 중간 정도의 난이도가 있는 숙제였습니다.   
+        하지만 강의에서 나온 예시를 잘 들어주신 분이라면   
+        큰 문제 없이 풀 수 있는 난이도였습니다.   
+        <br>
+        숙제의 내용은   
+        <br>
+        ![](img/web_week_4_homework.PNG)   
+        다음 웹페이지에서부터 입력받은 정보를   
+        <br>
+        ![](img/web_week_4_homework2.PNG)   
+        mongoDB를 통해 저장하고   
+        <br>
+        ![](img/web_week_4_homework3.PNG)   
+        저장된 정보를 아래에 표시되게 하는 것입니다.   
+        <br>
             
         
             
