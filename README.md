@@ -303,7 +303,7 @@
           
             ![](img/web_week_4_bookstore.PNG)   
             <br>
-            frontend + backend + mongoDB + beautifulSoup
+            frontend + backend + mongoDB + beautifulSoup   
             ![](img/web_week_4_memo.PNG)
           
       * #### 숙제
