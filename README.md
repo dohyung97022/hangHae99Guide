@@ -9,6 +9,9 @@
     * 웹개발 좋합반 1주차
     * 웹개발 종합반 2주차
     * 웹개발 종합반 3주차
+    * 웹개발 종합반 4주차
+    * 웹개발 종합반 5주차
+    * 파이선 문법 뽀개기 1주차
 * #### 시스템   
     * 면접
 
@@ -21,22 +24,41 @@
 
 * ## 공부
     * ### 웹개발 종합반 1주차
-      * #### 수업에서 제공된 내용
-        * 기본적인 html, CSS, javascript 관련된 초초초 기초들을 배웁니다.
-      * #### 느낀 점
-        술자는 과거 프로젝트를 진행한 적이 있어 빠르게 넘어갔지만   
-        1주차는 아마 코딩에 대한 지식이 전혀 없을 수 있는 초보분들을 고려한 내용으로 보입니다.   
-        재미있는 점은 강의마다 숙제를 낸다는 점입니다.
-      * #### 숙제
-        * CSS와 html의 기초적 이해를 요구하는 숙제...   
-          CSS를 전에 많이 사용하였지만 AWS 자격증을 준비하느라 다 휘발성 메모리가 되었나 봅니다. ㅋㅋ  
+      * #### 웹의 기초
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+
+          기본적인 html, CSS, javascript 관련된 기초들을 배웁니다.
+          </details>
+          <br>
+        
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+
+          술자는 과거 프로젝트를 진행한 적이 있어 빠르게 넘어갔지만   
+          1주차는 아마 코딩에 대한 지식이 전혀 없을 수 있는 초보분들을 고려한 내용으로 보입니다.   
+          재미있는 점은 강의마다 숙제를 낸다는 점입니다.   
+          좋은 여정이 되었으면 좋겠습니다. 
+          </details>
+          <br>
+        
+        * <details>
+          <summary>숙제</summary>
+          <br>
+
+          CSS와 html의 기초적 이해를 요구하는 숙제...   
+          CSS를 전에 많이 사용하였지만 AWS 자격증을 준비하느라 다 휘발성 메모리가 되었나 봅니다. ㅋㅋ   
           기억이 새록새록 돌아오는 경험이였습니다.   
           [저의 정답](sparta/frontend/01_homework.html)   
-        * ![](img/web_week_1_homework.PNG)
-    
+          ![](img/web_week_1_homework.PNG)   
+          </details>
+          <br>
+
     * ### 웹개발 종합반 2주차
       * #### jQuery
-        * <details open>
+        * <details>
             <summary>수업에서 제공된 내용</summary>
           <br>
           
@@ -53,7 +75,7 @@
           </details>
           <br>
 
-        * <details open>
+        * <details>
             <summary>느낀 점</summary>
 
           제공된 [html template](sparta\frontend\02_article.html)에서 `$('selector')`를 통해 사용할 수 있는 기능들에 대하여 배웠습니다.   
@@ -67,51 +89,78 @@
           </details>
           <br>
   
-        * <details open>
+        * <details>
             <summary>퀴즈</summary>
           
           [저의 정답](sparta/frontend/02_jQuery_quiz.html)   
-          Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.
+          Static website에서 버튼 클릭으로 인한 기능을 jQuery로 구현하는 퀴즈였습니다.   
           ![](img/web_week_2_quiz.PNG)
           </details>
           <br>
   
       * #### Ajax, JSON
-        * #### 수업에서 제공된 내용
-          * 특정 url에서 Get 받기
-            ```
-            $.ajax({ type: "GET", 
-            url: "api.myapi.com",
-            data: {},
-            success: 
-            function(response){
-                console.log(response)
-              }
-            })
-            ```
-        * #### 느낀 점 
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+
+          특정 url에서 Get 받기
+          ```
+          $.ajax({ type: "GET", 
+          url: "api.myapi.com",
+          data: {},
+          success: 
+          function(response){
+              console.log(response)
+            }
+          })
+          ```
+          </details>
+          <br>
+
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+
           Ajax는 jQuery에서 import되어 web response를 받는 라이브러리입니다.   
           저는 Ajax를 많이 들어본 적은 있었지만 직접적으로 사용해 본 적은 이번이 처음이였습니다.   
           React의 Axios framework를 사용하였지만 더 기본적인 라이브러리를 볼 수 있는 경험이였습니다.  
           다만 w3school은 ajax에서 XMLHttpRequest를 더 중심적으로 교육하는 것 같습니다.   
           API Hierarchy : jQuery.get/post > jQuery.ajax > XMLHttpRequest  
           참고 : [StackOverflow의 고인물들...](https://stackoverflow.com/questions/4657287/what-is-the-difference-between-xmlhttprequest-jquery-ajax-jquery-post-jquery)
-        * #### 퀴즈
-            [서울 미세먼지 API](http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99), [따릉이 API](http://spartacodingclub.shop/sparta_api/seoulbike), [카와이한 고양이 API](https://api.thecatapi.com/v1/images/search)   
-            위 API를 통하여 static website를 변동시키는 퀴즈였습니다.   
-            [저의 정답](sparta/frontend/02_Ajax_quiz.html)   
-            ![](img/web_week_2_quiz2.PNG)   
-            아... 커여워....
+          </details>
+          <br>
           
-      * #### 숙제
-        * 1주차 때 만들었던 템플렛에 환율 정보를 추가하는 것이 숙제로 나왔습니다.   
+        * <details>
+          <summary>퀴즈</summary>
+          <br>
+
+          [서울 미세먼지 API](http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99), [따릉이 API](http://spartacodingclub.shop/sparta_api/seoulbike), [카와이한 고양이 API](https://api.thecatapi.com/v1/images/search)   
+          위 API를 통하여 static website를 변동시키는 퀴즈였습니다.   
+          [저의 정답](sparta/frontend/02_Ajax_quiz.html)   
+          ![](img/web_week_2_quiz2.PNG)   
+          아... 커여워....
+          </details>
+          <br>
+          
+      * <details>
+        <summary>숙제</summary>
+        <br>
+
+        1주차 때 만들었던 템플렛에 환율 정보를 추가하는 것이 숙제로 나왔습니다.   
         [저의 정답](sparta/frontend/02_homework.html)   
         ![](img/web_week_2_homework.PNG)
+        </details>
+        <br>
           
     * ### 웹개발 종합반 3주차
       * #### Python / BeautifulSoup
-        * #### 수업에서 제공된 내용
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+          
+          가벼운 python 자료구조, syntax   
           `list = ['l','i','s','t']`   
+          
           `dictionary = {'id':value}` `dictionary['id'] = value`
           ```
           def func(param):
@@ -130,30 +179,45 @@
             print...
           ```
           `pip install`   
+          
+          Requset 모듈로 get 하기
           ```
           import requests
           reqJson = request.get('url').json()
           ```   
+          BeautifulSoup로 스크레이핑 하기
           ```
           import beautifulSoup
           soup = BeautifulSoup(reqJson.text,'html.parser')
           soup.select_one('#id > .class > div')
           ```
-        * #### 느낀 점
-          * 저는 크롤링/스크레이핑을 사랑합니다. 반가운 내용이 나왔네요.   
-            그 외에는 기본적인 python 지식, 자료구조를 가볍게 넘어갑니다.   
-            수업 내용은 쉬운 편입니다.   
-            혹여나 크롤링/스크레이핑에 관심이 많으신 분이 게신다면 저만의 작은 팁이 있습니다.   
-            같은 ip 주소에서 지속적으로 request를 보낼 경우 차단될 확률이 매우 높습니다.   
-            그래서 ip를 우회해야 하는데, 저는 이 해결 방법으로 AWS lambda를 추천드립니다.  
-            lambda는 5분마다 AWS ip pool에서 지속적으로 ip를 순환합니다.   
-            심지어 더 많은 ip가 필요하시다면 그냥 코드로 lambda를 생성할 수 있습니다.   
-            AWS SDK에서 async invocation도 가능해서 많은 request를 동시다발적으로 받을 수 있습니다.   
-            핵꿀팁이라서 이 글을 읽으시는 분들에게만 드립니다... ㅋㅋ   
-            저만 알고있는 꿀팁 맞죠? ;;;;
-            
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+
+          저는 크롤링/스크레이핑을 사랑합니다. 반가운 내용이 나왔네요.   
+          그 외에는 기본적인 python 지식, 자료구조를 가볍게 넘어갑니다.   
+          수업 내용은 쉬운 편입니다.   
+          혹여나 크롤링/스크레이핑에 관심이 많으신 분이 게신다면 저만의 작은 팁이 있습니다.   
+          같은 ip 주소에서 지속적으로 request를 보낼 경우 차단될 확률이 매우 높습니다.   
+          그래서 ip를 우회해야 하는데, 저는 이 해결 방법으로 AWS lambda를 추천드립니다.  
+          lambda는 5분마다 AWS ip pool에서 지속적으로 ip를 순환합니다.   
+          심지어 더 많은 ip가 필요하시다면 그냥 코드로 lambda를 생성할 수 있습니다.   
+          AWS SDK에서 async invocation도 가능해서 많은 request를 동시다발적으로 받을 수 있습니다.   
+          핵꿀팁이라서 이 글을 읽으시는 분들에게만 드립니다... ㅋㅋ   
+          저만 알고있는 꿀팁 맞죠? ;;;;
+          </details>
+          <br>
+  
       * #### Python / pymongo (mongoDB)
-        * #### 수업에서 제공된 내용
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+
+          기본 structure
           ```
           from pymongo import MongoClient
 
@@ -161,6 +225,7 @@
           db = client.schema
           ```
           
+          (단일 / 다중) 입력
           ```
           # insert
           doc = {'name': 'kim', 'age': 25}
@@ -168,25 +233,39 @@
           doc = [{'name': 'min', 'age': 20}, {'name': 'jun', 'age': 23}]
           db.users.insert_many(doc)
           ```
+          조건에 맞는 결과 찾기
           ```
           # find
           same_ages = list(db.users.find({'age': 21}, {'_id': False}))
           user = db.users.find_one({'name': 'bobby'}, {'_id': False})
           ```
+          (단일 / 다중) 변환
           ```
           # update
           db.users.update_one({'name': 'bobby'}, {'$set': {'age': 19}})
           db.users.update_many({'age': 19}, {'$set': {'name': 'adult'}})
           ```
+          삭제
           ```
           # delete
           db.users.delete_one({'name': 'bobby'})
           ``` 
-        * #### 느낀 점
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+
           pymongo의 CURD 기능에 대한 소개와   
           스크레이핑을 통해 받은 정보를 저장합니다.   
+          </details>
+          <br>
           
-        * #### 퀴즈
+        * <details>
+          <summary>퀴즈</summary>
+          <br>
+
           [저의 정답](sparta/backend/python/03_python_MongoDB_Quiz.py)   
           퀴즈는 메트릭스의 평점을 scraping 하는 것입니다.   
           이미 제공되고 해설하는 문제를 푸는 것은 좋지 않다고 생각되어   
@@ -224,8 +303,13 @@
           ```
           결과   
           ![](img/back_week_3_quiz2.PNG)
+          </details>
+          <br>
         
-      * #### 숙제
+      * <details>
+        <summary>숙제</summary>
+        <br>
+
         지니뮤직에서 top 50 곡과 그 아티스트를 받는 숙제입니다.   
         [저의 정답](sparta/backend/python/03_homework.py)   
         ```
@@ -233,45 +317,56 @@
         artist = re.findall('class="artist[^>]+>([^<]+)<', reqHtml.text)
         ```
         이것도 regex를 사용하여 간단히 했습니다.
-    
+        </details>
+        <br>
+  
     * ### 웹개발 종합반 4주차
       * #### Flask
-        * #### 수업에서 제공된 내용
-        기본 틀
-        ```
-        from flask import Flask
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
 
-        app = Flask(__name__)
+          기본 틀
+          ```
+          from flask import Flask
 
-        @app.route('/')
-        def home():
-          return 'This is Home!'
+          app = Flask(__name__)
 
-        if __name__ == '__main__':
-          app.run('0.0.0.0', port=5000, debug=True)
-        ```
-        html 템플릿 리턴
-        ```
-        from flask import Flask, render_template
-        @app.route('/')
-        def home():
-          return render_template('index.html')
-        ```
-        Get request와 ?parameter 받기
-        ```
-        @app.route('/test', methods=['GET'])
-        def test_get():
-          parameter = request.args.get('parameter')
-          return jsonify({'result': 'success', 'msg': '이걸 주셨나요?' + parameter})
-        ``` 
-        Post request와 body parameter 받기
-        ```
-        @app.route('/test', methods=['POST'])
-        def test_post():
-          post_body_parameter = request.form['body_parameter']
-          return jsonify({'result': 'success', 'msg': '이 요청을 주셨나요?' + post_body_parameter})
-        ```
-        * #### 느낀 점
+          @app.route('/')
+          def home():
+            return 'This is Home!'
+  
+          if __name__ == '__main__':
+            app.run('0.0.0.0', port=5000, debug=True)
+          ```
+          html 템플릿 리턴
+          ```
+          from flask import Flask, render_template
+          @app.route('/')
+          def home():
+            return render_template('index.html')
+          ```
+          Get request와 ?parameter 받기
+          ```
+          @app.route('/test', methods=['GET'])
+          def test_get():
+            parameter = request.args.get('parameter')
+            return jsonify({'result': 'success', 'msg': '이걸 주셨나요?' + parameter})
+          ``` 
+          Post request와 body parameter 받기
+          ```
+          @app.route('/test', methods=['POST'])
+          def test_post():
+            post_body_parameter = request.form['body_parameter']
+            return jsonify({'result': 'success', 'msg': '이 요청을 주셨나요?' + post_body_parameter})
+          ```
+          </details>
+          <br>
+        
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+
           이번 시간에는 플라스크의 파일구조와   
           Get/Post request와 url parameter, body parameter를 받는 방법을 배웠습니다.   
           그런데 세상에 마상에...   
@@ -287,9 +382,14 @@
           ![](img/web_week_4_speed.PNG)   
             Go 가 제일 빠른데 취직 자리도 없다는게 함정... 슬프다...   
             그냥 spring으로 시작할껄...
+          </details>
+          <br>
         
       * #### Flask + MongoDB + Ajax + jQuery + beautifulSoup
-        * #### 수업에서 제공된 내용
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+
             위에서 배운 모든 내용들을 종합하는 내용이였습니다.  
             <br>
             1. Flask로 api를 연다.   
@@ -297,7 +397,13 @@
             3. Ajax와 jQuery로 parameter로 받는다.   
             4. frontend에 표시한다.
             5. Scraping 또한 활용한다.
-        * #### 느낀 점
+          </details>
+          <br>
+
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+            
             프로젝트를 전체적으로 설계/조립하는 것만큼 [satisfaction](https://www.youtube.com/watch?v=a0fkNdPiIL4) 한 것은 없습니다.   
             또한 이번 수업에서 들어 내용 중에 카카오톡이 어떻게   
             ![](img/web_week_4_kacao.PNG)   
@@ -319,28 +425,35 @@
             <br>
             frontend + backend + mongoDB + beautifulSoup   
             ![](img/web_week_4_memo.PNG)
+          </details>
+          <br>
           
-      * #### 숙제
-        나의 정답 [index.html](sparta/backend/python/04_homework/templates/index.html) / [app.py](sparta/backend/python/04_homework/app.py)   
-        이번에는 중간 정도의 난이도가 있는 숙제였습니다.   
-        하지만 강의에서 나온 예시를 잘 들어주신 분이라면   
-        큰 문제 없이 풀 수 있는 난이도였습니다.   
-        <br>
-        숙제의 내용은   
-        <br>
-        ![](img/web_week_4_homework.PNG)   
-        다음 웹페이지에서부터 입력받은 정보를   
-        <br>
-        ![](img/web_week_4_homework2.PNG)   
-        mongoDB를 통해 저장하고   
-        <br>
-        ![](img/web_week_4_homework3.PNG)   
-        저장된 정보를 아래에 표시되게 하는 것입니다.   
-        <br>
+      * <details>
+          <summary>숙제</summary>
+          <br>
         
+          나의 정답 [index.html](sparta/backend/python/04_homework/templates/index.html) / [app.py](sparta/backend/python/04_homework/app.py)   
+          이번에는 중간 정도의 난이도가 있는 숙제였습니다.   
+          하지만 강의에서 나온 예시를 잘 들어주신 분이라면   
+          큰 문제 없이 풀 수 있는 난이도였습니다.   
+          <br>
+          숙제의 내용은   
+          <br>
+          ![](img/web_week_4_homework.PNG)   
+          다음 웹페이지에서부터 입력받은 정보를   
+          <br>
+          ![](img/web_week_4_homework2.PNG)   
+          mongoDB를 통해 저장하고   
+          <br>
+          ![](img/web_week_4_homework3.PNG)   
+          저장된 정보를 아래에 표시되게 하는 것입니다.   
+          <br>
+          </details>
+          <br>
+  
     * ### 웹개발 종합반 5주차
       * #### 4주차 복습
-        * <details open>
+        * <details>
           <summary>수업에서 제공된 내용</summary>
           <br>
 
@@ -358,7 +471,7 @@
           ```
           </details>
           <br>
-        * <details open>
+        * <details>
           <summary>느낀 점</summary>
           <br>
           
@@ -369,7 +482,7 @@
           <br>
         
       * #### AWS
-        * <details open>
+        * <details>
           <summary>수업에서 제공된 내용</summary>
           <br>
   
@@ -393,7 +506,7 @@
           </details>
           <br>
           
-        * <details open>
+        * <details>
           <summary>느낀 점</summary>
           <br>
           
@@ -410,13 +523,13 @@
           
           너무 좋은 강의였음에도 불구하고 아쉬운 점을 추가하자면...   
           CORS에 대한 내용이 없어 초보자 분들이 해맬 수 있다고 생각했습니다.   
-          보통 도메인을 변경하게 되면 모든 html이나 application의 도메인을 일치시켜여 하는데   
+          도메인을 변경하게 되면 모든 html이나 application의 request 도메인을 일치시켜여 하는데   
           이전에 숙제를 한 localhost나 EC2의 IP로 접근할 경우 CORS가 뜨며 오류가 발생합니다.   
           이점을 조금 더 개인적으로 공부하시면서 보완하신다면 좋을 것 같습니다.   
           </details>
           <br>
   
-      * <details open>
+      * <details>
         <summary>숙제</summary>
         <br>
 
@@ -428,37 +541,96 @@
         </details>
         <br>
         
+    * ### 파이선 문법 뽀개기
+      * #### 수업 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+      
+      * #### 수업 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+  
+      * <details>
+        <summary>숙제</summary>
+        <br>
+  
+        </details>
+        <br>
             
 * ## 시스템
     * ### 면접
-        * #### 면접 구성
-            * 서류면접 -> 대면면접 -> 최종합격
-        * #### 서류면접
-            * 서류 면접은 직접 확인하시기 바랍니다.   
-            제가 지원한 21년도 1분기와 다를 수 있습니다.
-        * #### 대면면접
-            * 면접의 내용은 코딩 중심적이지 않았습니다.  
-            서류면접에 관련된 내용을 토대로 질문하며 추가적으로    
-            끈기, 몰입, 노력, 성품에 대하여 물어보았습니다.   
-            질문으로 받은 것을 예로 들면   
-            '과거 끈기 있게 무엇을 끝까지 한 적이 있나요?'   
-            '인간관계가 어려워지면 어떻게 하시나요?'   
-            '프로그래머가 되기 위하여 어떠한 노력을 하셨나요?'   
-            같은 질문이 있었습니다.   
-            항해 99는 팀원들끼리 서비스를 직접 런칭하는 부트캠프라서   
-            역량과 인간관계에 관련된 질문들로 구성한 것이 인상 깊었습니다.   
-            선하고 성실하시다면 합격입니다. ㅋㅋ   
-        * #### 최종합격
-            * 최종 합격이 되었다는 카톡이 오고 결제를 완료하시면 이런 카톡이 옵니다.   
-            카톡을 받은 이후 항해99 슬랙에 가입하라는 문자가 몇 일 이후에 왔습니다.
-            * ![](img/최종합격.jpg)
+        * <details>
+          <summary>면접구성</summary>
+          <br>
 
+          서류면접 -> 대면면접 -> 최종합격
+          </details>
+          <br>
+        * <details>
+          <summary>서류면접</summary>
+          <br>
+
+          서류 면접은 직접 확인하시기 바랍니다.   
+          제가 지원한 21년도 1분기와 다를 수 있습니다.   
+          결제 없이 확인 가능합니다.
+          </details>
+          <br>
+
+        * <details>
+          <summary>대면면접</summary>
+          <br>
+
+          면접의 내용은 코딩 중심적이지 않았습니다.  
+          서류면접에 관련된 내용을 토대로 질문하며 추가적으로    
+          끈기, 몰입, 노력, 성품에 대하여 물어보았습니다.   
+          질문으로 받은 것을 예로 들면   
+          '과거 끈기 있게 무엇을 끝까지 한 적이 있나요?'   
+          '인간관계가 어려워지면 어떻게 하시나요?'   
+          '프로그래머가 되기 위하여 어떠한 노력을 하셨나요?'   
+          같은 질문이 있었습니다.   
+          항해 99는 팀원들끼리 서비스를 직접 런칭하는 부트캠프라서   
+          역량과 인간관계에 관련된 질문들로 구성한 것이 인상 깊었습니다.   
+          선하고 성실하시다면 합격입니다. ㅋㅋ  
+          </details>
+          <br>
+             
+        * <details>
+          <summary>최종합격</summary>
+          <br>
+
+          최종 합격이 되었다는 카톡이 오고 결제를 완료하시면 이런 카톡이 옵니다.   
+          카톡을 받은 이후 항해99 슬랙에 가입하라는 문자가 몇 일 이후에 왔습니다.
+          ![](img/최종합격.jpg)
+          </details>
+          <br>
 
 <br>
 
-드랍다운으로 전환한다면 다음을 사용하시오
+readme 용 드랍다운. 귀찮으니 복붙 ㄱㄱ
 ```
-<details open>
+<details>
 <summary>드랍다운</summary>
 <br>
 
