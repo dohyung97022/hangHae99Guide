@@ -11,7 +11,7 @@
     * 웹개발 종합반 3주차
     * 웹개발 종합반 4주차
     * 웹개발 종합반 5주차
-    * 파이선 문법 뽀개기 1주차
+    * 파이선 문법 뽀개기
 * #### 시스템   
     * 면접
 
@@ -51,6 +51,7 @@
           CSS와 html의 기초적 이해를 요구하는 숙제...   
           CSS를 전에 많이 사용하였지만 AWS 자격증을 준비하느라 다 휘발성 메모리가 되었나 봅니다. ㅋㅋ   
           기억이 새록새록 돌아오는 경험이였습니다.   
+          Inline styling, style block를 모두 연습삼아 활용했습니다.   
           [저의 정답](sparta/frontend/01_homework.html)   
           ![](img/web_week_1_homework.PNG)   
           </details>
@@ -104,7 +105,7 @@
           <br>
 
           특정 url에서 Get 받기
-          ```
+          ```javascript
           $.ajax({ type: "GET", 
           url: "api.myapi.com",
           data: {},
@@ -162,31 +163,31 @@
           `list = ['l','i','s','t']`   
           
           `dictionary = {'id':value}` `dictionary['id'] = value`
-          ```
+          ```python
           def func(param):
             return param
           ```
-          ```
+          ```python
           if a > 20:
             print(a)
           ```
-          ```
+          ```python
           for c in ['l','i','s','t']:
             print(c)
           ```
-          ```
+          ```python
           for c in [{name:kim,age:25},{name:jun,age:23},{name:min,age:20}]:
-            print...
+            print(c)
           ```
           `pip install`   
           
           Requset 모듈로 get 하기
-          ```
+          ```python
           import requests
           reqJson = request.get('url').json()
           ```   
           BeautifulSoup로 스크레이핑 하기
-          ```
+          ```python
           import beautifulSoup
           soup = BeautifulSoup(reqJson.text,'html.parser')
           soup.select_one('#id > .class > div')
@@ -218,7 +219,7 @@
           <br>
 
           기본 structure
-          ```
+          ```python
           from pymongo import MongoClient
 
           client = MongoClient('localhost', 27017)
@@ -226,7 +227,7 @@
           ```
           
           (단일 / 다중) 입력
-          ```
+          ```python
           # insert
           doc = {'name': 'kim', 'age': 25}
           db.users.insert_one(doc)
@@ -234,19 +235,19 @@
           db.users.insert_many(doc)
           ```
           조건에 맞는 결과 찾기
-          ```
+          ```python
           # find
           same_ages = list(db.users.find({'age': 21}, {'_id': False}))
           user = db.users.find_one({'name': 'bobby'}, {'_id': False})
           ```
           (단일 / 다중) 변환
-          ```
+          ```python
           # update
           db.users.update_one({'name': 'bobby'}, {'$set': {'age': 19}})
           db.users.update_many({'age': 19}, {'$set': {'name': 'adult'}})
           ```
           삭제
-          ```
+          ```python
           # delete
           db.users.delete_one({'name': 'bobby'})
           ``` 
@@ -273,7 +274,7 @@
           [네이버의 backend](https://m.search.naver.com/p/csearch/content/qapirender.nhn?_callback=___MovieAPIforPList_key_68_pkid_nexearch_where_1_start_8_display_s1_dsc_so_%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94_q&key=MovieAPIforPList&pkid=68&where=nexearch&start=1&display=8&so=s1.dsc&q=%ED%98%84%EC%9E%AC%EC%83%81%EC%98%81%EC%98%81%ED%99%94)
           는 url의 where 이후의 숫자와, &start의 파라미터의   
           숫자에 따라 결과를 달리합니다.
-          ```
+          ```python
           for x in ['1', '9', '17', '25', '33']:
           reqHtml = requests.get(
           'https://m.search.naver.com/p/csearch/content/qapirender.nhn?_callback=___MovieAPIforPList_key_68_pkid_nexearch_where_' 
@@ -292,7 +293,7 @@
           결과   
           ![](img/back_week_3_quiz.PNG)
           그 이후 형식을 변환하고 저장합니다.
-          ```
+          ```python
           # array 형식을 dictionary 형식으로 바꾼다.
           movieDicArr = []
           for movieName in movieArr:
@@ -312,7 +313,7 @@
 
         지니뮤직에서 top 50 곡과 그 아티스트를 받는 숙제입니다.   
         [저의 정답](sparta/backend/python/03_homework.py)   
-        ```
+        ```python
         titles = re.findall('class="albumtitle[^>]+>([^<]+)<', reqHtml.text)
         artist = re.findall('class="artist[^>]+>([^<]+)<', reqHtml.text)
         ```
@@ -327,7 +328,7 @@
           <br>
 
           기본 틀
-          ```
+          ```python
           from flask import Flask
 
           app = Flask(__name__)
@@ -340,21 +341,21 @@
             app.run('0.0.0.0', port=5000, debug=True)
           ```
           html 템플릿 리턴
-          ```
+          ```python
           from flask import Flask, render_template
           @app.route('/')
           def home():
             return render_template('index.html')
           ```
           Get request와 ?parameter 받기
-          ```
+          ```python
           @app.route('/test', methods=['GET'])
           def test_get():
             parameter = request.args.get('parameter')
             return jsonify({'result': 'success', 'msg': '이걸 주셨나요?' + parameter})
           ``` 
           Post request와 body parameter 받기
-          ```
+          ```python
           @app.route('/test', methods=['POST'])
           def test_post():
             post_body_parameter = request.form['body_parameter']
@@ -458,7 +459,7 @@
           <br>
 
           pymongodb에서의 sort
-          ```
+          ```python
           mycol = db["database"]
           sorted = mycol.find().sort("name" , -1)
           ```
@@ -466,7 +467,7 @@
           ![](img/web_week_5_moviestar.PNG)
           
           Static html에서 reload 하는 방법
-          ```
+          ```javascript
           window.location.reload()
           ```
           </details>
@@ -542,11 +543,45 @@
         <br>
         
     * ### 파이선 문법 뽀개기
-      * #### 수업 주제
+      * #### 파이선 문법 기초
         * <details>
           <summary>수업에서 제공된 내용</summary>
           <br>
   
+          변수와 포인터 개념   
+          
+          사칙연산   
+          `**` `+` `-` `^` `%`   
+          
+          bool, string, int   
+          
+          타입의 변환   
+          `str(12)` `int('12')`
+          
+          타입의 다양한 연산   
+          `len()` `arr[0]` `arr[3:5]` `str.split('@')`
+          
+          List   
+          `list[a,'문자',13]`  `list.append(a)` `list.sort()` `(5 in list)`
+          
+          Dictionary   
+          `dic={'name':'kim','age':25}` `dic[name]` `(age in dic)`   
+          
+          List of Dictionary   
+          `[{name:'kim'},{name:'jun'}]`   
+          
+          List of List   
+          `[['2차'],['리스트']]`   
+          
+          Dictionary of Dictionary   
+          `{id:'dohyung97022',pw:'123',user:{name:'kim'}}`
+          
+          조건문   
+          `if():` `else:` `elif():`
+          
+          반복문   
+          `for a in arr:` `break` `for i, a in enumerate(arr):`
+
           </details>
           <br>
           
@@ -554,30 +589,147 @@
           <summary>느낀 점</summary>
           <br>
   
+          기초적인 파이선 문법입니다.   
+          별로 특별한건 없었어요.    
+          다만 저는 반복문의 enumerate는 처음 보았습니다. ㅋㅋ      
+          Noob !! ~
+          
           </details>
           <br>
       
-      * #### 수업 주제
+      * #### 파이선 문법 심화
         * <details>
           <summary>수업에서 제공된 내용</summary>
           <br>
   
+          튜플   
+          `(a,12)`   
+          
+          집합   
+          `arr = [1,1,1,2,3,4,4,5]`
+          `sett = set(arr)` `aSet = {1,2,3,4,5}`   
+          `aSet & bSet` `aSet | bSet` `aSet - bSet`
+          
+          f-string   
+          `f'{name}은 나이 {age}에 f-string을 모르는 noob입니다.'`
+          
+          예외처리   
+          `try: except:`   
+          
+          파이선 파일 관리
+          ```python
+          #funcs.py
+          def func1():
+             print('func1')
+          def func2():
+             print('func2')
+          ```
+          ```python
+          # main.py
+          from funcs.py import func1
+          func1()
+          ```
+  
+          map function   
+          ```python
+          people = [
+          {'name': 'bob', 'age': 20},
+          {'name': 'carry', 'age': 38},
+          {'name': 'john', 'age': 7},
+          ]
+          ```
+          ```python
+          def check_adult(person):
+            if person['age'] > 20:
+              return '성인'
+            else:
+              return '청소년'
+
+          result = map(check_adult, people)
+          print(list(result)) # ['청소년','성인','청소년']
+          ```
+          
+          filter function   
+          ```python
+          def check_adult(person):
+            if person['age'] > 20:
+              return True
+            else:
+              return False
+
+          result = filter(check_adult, people)
+          print(list(result)) # [{'name': 'carry', 'age': 38}]
+          ``` 
+          
+          function 심화
+          ```python
+          # param의 순서 변환
+          def changedOrder(a,b):
+            return a+b
+          changedOrder(b=1,a=2)
+          
+          # 기본 param
+          def ifNotGiven(a=100):
+            return a
+          ifNotGiven()
+          
+          # 무제한 params
+          def unlimitedParam(*args):
+            for i in args:
+               print(i)      
+          unlimitedParam(1,2,3,4,5)
+          
+          # kwargs dictionary
+          def kwargsDictionary(**kwargs):
+             print(kwargs)
+          kwargsDictionary(name='kim',age=25)
+          # {name:'kim',age:25}
+          ``` 
+          class 구조
+          ```python
+          class Monster():
+            hp = 100
+            alive = True
+
+            def damage(self, attack):
+              self.hp = self.hp - attack
+              if self.hp < 0:
+                self.alive = False
+
+            def status_check(self):
+              if self.alive:
+                print('살아있다')
+              else:
+                print('죽었다')
+
+          m = Monster()
+          m.damage(120)
+
+          m2 = Monster()
+          m2.damage(90)
+
+          m.status_check()
+          m2.status_check()
+          ```
           </details>
           <br>
           
         * <details>
           <summary>느낀 점</summary>
           <br>
-  
+          
+          저는 특정 언어를 사용한다고 할 때 그 언어를 깊게 판 사람의 코드와   
+          겉핥기 식으로 한 사람의 코드는 다르다고 생각합니다.   
+          물론 이 강의는 겉핥기 식의 강의였지만 수강자들에게 방향성을 주는 것이 좋았다고 생각합니다.   
+          언어를 깊게 판 사람은 예술의 경지에 다다른 code를 짤 수 있습니다.   
+          특정 기능을 구현한다고 할 때 구구절절 구현하기보다 기초 라이브러리에서 찾아 쓰고   
+          언어마다 class나 function의 구조적 원칙을 이해하여 그 규칙을 따릅니다.   
+          구글링도 좋지만 가끔은 강의나 책도 좋습니다.   
+          이러한 기능이 있었구나... 하고 어렴풋이 기억해도 성공입니다.   
+          그 기능을 사용하여 코드베이스를 간략화 할 수 있으니까요.   
+          이상 입만 살아있는 코더였습니다. ㅋㅋㅋㅋ
           </details>
           <br>
-  
-      * <details>
-        <summary>숙제</summary>
-        <br>
-  
-        </details>
-        <br>
             
 * ## 시스템
     * ### 면접
@@ -637,4 +789,58 @@ readme 용 드랍다운. 귀찮으니 복붙 ㄱㄱ
 드랍다운 내용
 </details>
 <br>
+
+# 아래는 tab를 한번 하고 붙여쓰기!
+      
+* ### 수업
+      * #### 수업 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+        
+        * <details>
+          <summary>퀴즈</summary>
+          <br>
+  
+          </details>
+          <br>
+      
+      * #### 수업 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+          
+        * <details>
+          <summary>퀴즈</summary>
+          <br>
+  
+          </details>
+          <br>
+  
+      * <details>
+        <summary>숙제</summary>
+        <br>
+  
+        </details>
+        <br>
 ```
