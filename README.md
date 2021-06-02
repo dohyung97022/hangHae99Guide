@@ -217,7 +217,17 @@
         * <details>
           <summary>수업에서 제공된 내용</summary>
           <br>
-
+          
+          * 설치   
+            * C:\data\db 파일을 만든다.   
+            * [다운로드](https://www.mongodb.com/try/download/community?tck=docs_server)에서 windows용 exe 파일을 받는다.   
+            * mongoDB installer에서 custom -> browse -> c/data/db 파일로 설정한다.   
+            * Install mongoDB compass는 취향입니다.   
+            * [mongo3T](https://robomongo.org/download)를 설치해주세요.   
+            * C:\data\db\bin를 환경변수 -> 시스템 변수 -> path에 추가해주세요.   
+            * cmd에서 mongod를 치면 DB 실행이 됩니다.   
+          <br>
+   
           기본 structure
           ```python
           from pymongo import MongoClient
