@@ -4,7 +4,7 @@
 항해 99를 고려하고 있으시거나 궁굼하시다면 도움이 되길 바랍니다.   
 <br/>
 ## 목차
-* #### 일간 기록   
+* #### 프로젝트 
 * #### 공부   
     * 웹개발 좋합반 1주차
     * 웹개발 종합반 2주차
@@ -12,13 +12,16 @@
     * 웹개발 종합반 4주차
     * 웹개발 종합반 5주차
     * 파이선 문법 뽀개기
+    * 알고보면 알기쉬운 알고리즘 1주차
+    * 알고보면 알기쉬운 알고리즘 2주차
 * #### 시스템   
     * 면접
 
 <br/>
 
-* ## 일간 기록
-    * #### 21/5/22
+* ## 프로젝트
+    * #### [Daily report](https://github.com/dohyung97022/DailyReport)
+    * #### [Wanderer](https://github.com/hanghaeWeek1Team12/wanderer)
 
 <br/>
 
@@ -740,7 +743,113 @@
           이상 입만 살아있는 코더였습니다. ㅋㅋㅋㅋ
           </details>
           <br>
+
+    * ### 알고보면 알기쉬운 알고리즘 1주차
+      * #### 시간/공간 복잡도, 점근 표기법
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+          
+          간단한 기초적 빅 오 표기법, 세타 표기법에 대하여 나옵니다.   
+          메모리를 사용하는 공간복잡도, 알고리즘 자체의 성능인 시간복잡도의 간략한 설명이 나옵니다.   
+          </details>
+          <br>
+    
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
             
+            이번 년도 초기에 혼자서 안경잡이 개발자의 알고리즘 강의를 보며 공부하고   
+            백준 문제도 많이 풀어봤는데 저만 항상 볼때마다 새로워 보이나요? ㅋㅋ   
+            숙제가 분명히 쉬운 문제인데 왜 기억이 안날까요? ㅋㅋ    
+          </details>
+          <br>
+    
+      * <details>
+        <summary>숙제</summary>
+        <br>
+        
+        저는 분명해 에스토스테네스의 체를 배웠습니다.   
+        그런데 머릿속에 어렴풋이 상상이 되지만 왜 손은 멈춰있을까요?   
+        ...눈물....
+        
+        ```python
+        input = 20
+        
+        def find_prime_list_under_number(number):
+            # 저의 정답
+            # 에스토스테네스의 체
+            # 1. 한개씩 숫자를 지나간다.
+            # 2. 한개씩 숫자를 지나가며 소수를 찾는다.
+            # 3. 소수를 찾았다면 그 소수의 배수를 지운다.
+            # 4. 1을 반복한다.
+        
+            arr = []
+            for i in range(3, input + 1): # range(int1, int2) 이거 까먹음...
+                arr.append(i)
+        
+            for i in arr:
+                eraser = i
+                while eraser <= 20:
+                    eraser += eraser
+                    # 기존 생각
+                    if eraser in arr:
+                        arr.remove(eraser)
+                    # 나중 생각
+                    try:
+                        arr.remove(eraser)
+                    except:
+                        pass
+        
+            return arr
+        
+        result = find_prime_list_under_number(input)
+        print(result)
+        ``` 
+        
+        기존 생각에서 if earser in arr: 가 arr를 loop로 돌 것 같아   
+        try catch로 바꿨습니다.   
+        한번 겉눈질 하고 직접 풀었지만...   
+        오랜만에 해서 그런지 조금 걸렸습니다...   
+        </details>
+        <br>
+        
+    * ### 알고보면 알기쉬운 알고리즘 2주차
+      * #### 기초적 자료구조
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+          
+          Array, linkedList, class, 이진탐색
+          기본적인 내용들이 나옵니다.   
+          생각보다 정리가 잘 되어 있었습니다.   
+          간략한 핵심만을 예기합니다.   
+          아시는 분은 2배속으로 보고 빨리 넘어가세요~   
+          직접 자료구조를 만들어보기도 하고 부족함을 느껴서   
+          [이부분을 자세하게 봤습니다.](sparta/algorithms/week2/linkedList.py)   
+          </details>
+          <br>
+    
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+            
+          c++로 linkedlist를 만드는데 훨씬 어려웠던 것 같은데   
+          파이선으로 구현하면 왜 쉽게 느껴지는지 의야합니다.   
+          
+          또한 이진탐색은 역시 구현할 때 중간에 기준값을 기준으로   
+          
+          </details>
+          <br>
+    
+      * <details>
+        <summary>숙제</summary>
+        <br>
+        
+        </details>
+        <br>   
+        
+                
 * ## 시스템
     * ### 면접
         * <details>
