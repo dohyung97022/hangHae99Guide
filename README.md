@@ -14,6 +14,7 @@
     * 파이선 문법 뽀개기
     * 알고보면 알기쉬운 알고리즘 1주차
     * 알고보면 알기쉬운 알고리즘 2주차
+    * 알고보면 알기쉬운 알고리즘 3주차
 * #### 시스템   
     * 면접
 
@@ -825,7 +826,7 @@
           생각보다 정리가 잘 되어 있었습니다.   
           간략한 핵심만을 예기합니다.   
           아시는 분은 2배속으로 보고 빨리 넘어가세요~   
-          직접 자료구조를 만들어보기도 하고 부족함을 느껴서   
+          직접 자료구조를 만들어보는 데에 부족함을 느껴서   
           [이부분을 자세하게 봤습니다.](sparta/algorithms/week2/linkedList.py)   
           </details>
           <br>
@@ -838,7 +839,14 @@
           파이선으로 구현하면 왜 쉽게 느껴지는지 의야합니다.   
           
           또한 이진탐색은 역시 구현할 때 중간에 기준값을 기준으로   
+          작은지 작거나 같은지, 큰지 크거나 같은지, 그 구분이 항상   
+          햇갈렸던 것 같습니다.   
+          그래서 그냥 간단하게   
           
+          같은 경우   
+          작은 경우   
+          큰 경우   
+          이 세가지로 나눴습니다.   
           </details>
           <br>
     
@@ -846,8 +854,132 @@
         <summary>숙제</summary>
         <br>
         
+        1. 숙제로는 링크드 리스트에서 끝에서 3번째 값 출력      
+        2. 배달의 민족 배달 가능 여부   
+        3. 더하거나 빼거나    
+        
+        문제가 나왔습니다.   
+        
+        a. 의 경우 링크드 리스트의 자료구조를 조금 바꿔서   
+        prev를 추가하였습니다.
+        ```python
+        class Node:
+        def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+        ``` 
+
+        append 될 때 prev를 정의하게 하였고   
+        이를 사용해서 값을 구했습니다.   
+        ```python
+        def append(self, value):
+        cur = self.head
+        while cur.next is not None:
+        cur = cur.next
+        cur.next = Node(value)
+        cur.next.prev = cur
+        ``` 
+        
+        b. 의 경우 이분탐색을 이용했습니다.   
+        파이선의 경우 array가 한글로 이뤄져 있어도 sort가 가능한가 봅니다.   
+        ```
+        def order_binary(menus, order):
+        # 1. 한글을 정렬한다.
+        menus.sort()
+        # 2. 2분 탐색한다.
+        # 2-0. 길이가 없다면 false를 반환
+        if len(menus) == 0:
+        return False
+        # 2-1. 중앙값 지정
+        mid = int(len(menus)/2)
+        # 2-2. 중앙값과 일치한다면 true
+        if menus[mid] == order:
+        return True
+        # 2-2. 중앙값보다 작다면 0~중앙값-1
+        elif order < menus[mid]:
+        return order_binary(menus[0:mid], order)
+        # 2-3. 중앙값보다 크다면 중앙값+1~len(menus)
+        elif order > menus[mid]:
+        return order_binary(menus[mid+1:len(menus)], order)
+        ``` 
+        
+        c. 의 경우 저의 굳은 머리로는 왜 bsf밖에 떠오르지 않을까요?   
+        분명 2주차까지 bsf를 배우지 않았는데 방법이 떠오르지 않습니다... ㅜㅜ   
+        <s>역시 코딩테스트는 아이큐테스트...</s>
         </details>
         <br>   
+
+  * ### 알고보면 알기쉬운 알고리즘 3주차
+    * #### 정렬/스택/큐/해쉬
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+
+        버블정렬/선택정렬/병합정렬   
+        스택/큐   
+        해쉬   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        버블정렬이 2가지를 비교한다는 것은   
+        기억을 했지만, 그로 인해 결국 마지막 인덱스의 값이   
+        순차적으로 정렬된다는 것은 기억하지 못했네요.      
+        
+        선택정렬은 말할 필요도 없이 가장 비효울적입니다.   
+        
+        병합정렬은 많이 햇갈려서 영상을 보면서 구현했습니다.   
+        결국에는 2개 배열을 병합하는 것을 분할정복 하는 것이지만   
+        [2개의 배열을 병합하는 것에서 좀 해매다가 보고 했다는게 함정](sparta/algorithms/week3/mergeSort.py)
+        
+        제공된 분할정복은 아름답습니다.
+        ```python
+        def merge_sort(arr):
+            if len(arr) == 1:
+                return arr
+            mid = int(len(arr)/2)
+            left_arr = merge_sort(arr[:mid])
+            right_arr = merge_sort(arr[mid:])
+            return merge(left_arr, right_arr)
+        ``` 
+        <s>아니면 파이선이 쉬운건가?   
+        쉬워서 아름답게 느꺼지는 건가? </s>
+        
+        추가적으로 모든 수업 내용들은 본인이 직접 구현해보라고 코드스니핏을 줍니다.   
+        [저의 스택 구현](sparta/algorithms/week3/stack.py)   
+        [저의 큐 구현](sparta/algorithms/week3/queue.py)
+        
+        해쉬맵 구현은 부족함을 느껴 강의를 보며 따라 했습니다.   
+        파이선의 경우 해쉬값을 이렇게 지정해주셨습니다.   
+        `hash(key) % len(self.items)`    
+        
+        `len(self.items)`로 나눈 나머지는 0 ~ `len(self.items)-1`사이에 존재하는 것을 이용한 것 같습니다.   
+        
+        그 외에는 통상적인 해쉬맵을 따릅니다.   
+        강의에서는 각 인덱스의 value에 linkedTuple를 넣었습니다.   
+        
+        ![](img/algorithm_week3_dict.PNG)
+        
+        linkedTuple에서 key value로 이뤄지는 이유는 해쉬 값으로 array를 찾으면   
+        그 이후 해쉬키 이전의 키값 자체로 value를 찾기 위해서입니다.   
+        </details>
+        <br>
+
+    * <details>
+      <summary>숙제</summary>
+      
+      소괄호 문제   
+      소괄호 문제는 스택 대표 문제입니다.   
+      
+      <br>
+
+      
+      </details>
+      <br>  
         
                 
 * ## 시스템
