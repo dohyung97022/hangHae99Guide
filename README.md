@@ -15,6 +15,7 @@
     * 알고보면 알기쉬운 알고리즘 1주차
     * 알고보면 알기쉬운 알고리즘 2주차
     * 알고보면 알기쉬운 알고리즘 3주차
+    * 자바 문법 뽀개기
 * #### 시스템   
     * 면접
 
@@ -971,15 +972,120 @@
 
     * <details>
       <summary>숙제</summary>
-      
-      소괄호 문제   
-      소괄호 문제는 스택 대표 문제입니다.   
-      
+  
       <br>
-
-      
+  
       </details>
       <br>  
+  
+
+  * ### 자바 문법 뽀개기
+    * #### 기초 문법
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+  
+        [변수, 상수](sparta/backend/java/VarAndConst.java)   
+        [타입](sparta/backend/java/Types.java)   
+        [array](sparta/backend/java/Arrray.java)   
+        [연산](sparta/backend/java/Operators.java)   
+        [조건문](sparta/backend/java/Conditional.java)   
+        [반복문](sparta/backend/java/Loop.java)   
+        
+        기초적인 문법 내용들이 나옵니다.   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        언어들마다 다른 점 중에서 변수 선언을 할 때의 default 가 다르다는 것을 까먹었나 봅니다.   
+        예를 들어 java 는 String 을 만들 때 ""가 아니라 null 로 초기 선언이 됩니다.
+        이러한 내용도 제공되어서 좋았습니다.      
+        다만 아쉬운 점을 표하자면 타입을 변환하는 방법들에 대한 설명이 부족했다고 생각합니다.   
+        
+        `타입제네릭클래스.parse` 같은 방법이 많이 사용된다는 것을   
+        [남궁성님의 자바의 정석](https://www.youtube.com/user/MasterNKS/videos) 에서 보았지만,
+        이 강의는 더 추가적인 방법을 소개해주지는 않았습니다.   
+        
+        더 욕심 있으신 분들은 위 링크로 들어가서 수업을 들어보신다면,   
+        많은 자바 기본 클래스의 쓰임새를 배울 수 있을 것이라고 생각합니다.   
+        
+        저도 다시 빠르게 들어봐야겠어요... 다 까먹었습니다....   
+        
+        수업에서 다루는 내용들은 한번 공부하면서 [여기](https://github.com/dohyung97022/javaGuide) 에 전에 정리했었습니다.   
+        한번 보시고 맞다 싶으면 자바의 정석 직접 들어보세요. ㅋㅋ   
+        다 외우는 것은 불가능하지만, 어느정도 이해하신다고 해가 되지는 않습니다.   
+        </details>
+        <br>
+
+    * #### OOP
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+
+        [Class](sparta/backend/java/Classs.java)   
+        [Inheritance](sparta/backend/java/Inheritance.java)
+          * [Animal](sparta/backend/java/Animal.java)   
+          * [Dog](sparta/backend/java/Dog.java)   
+        
+        [Interface](sparta/backend/java/Interface.java)   
+        [OverLoading](sparta/backend/java/Overloading.java)   
+        [OverRiding](sparta/backend/java/Overriding.java)   
+        [Abstraction](sparta/backend/java/Abstraction.java)   
+        
+        기초적인 내용들이 나옵니다.   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        객체지향이야말로 자바의 꽃이죠?   
+        자바를 다른 언어들에 비해 좋아하는 이유이기도 합니다.   
+        자바는 OOP 구성을 따르게끔 만들어져 있습니다.   
+        마치 강압적인 선생님이 조금 더 잘 가르키는 것과 같습니다... ?   
+        
+        기본에 충실한 좋은 강의였습니다.   
+        그래도 역시 +알파를 원하신다면 [자바의 정석](https://www.youtube.com/user/MasterNKS/videos) 을 들어주세요.   
+        </br>
+        예를 들어 인터페이스가 method 를 정의하는데 있어 그 내용을 넣을 수   
+        없다고 생각하시는 분들이 많으실 것 같은데...   
+        실제로는 인터페이스 내부에서도 내용을 넣을 수 있습니다.   
+        </br>
+        `default void function(){ // 내용 }`   
+        이렇게 넣을 수 있다는 것을 알고 게셨나요? (jdk1.8 이후)   
+        이런 내용들을 자바의 정석에서 다룹니다.   
+        광고 아니에요. ㅋㅋ   
+        명강의를 널리 퍼트리고 싶은 학생입니다.   
+        
+        </details>
+        <br>
+    
+    * #### Exception
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+  
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        </details>
+        <br>
+
+    * <details>
+      <summary>숙제</summary>
+      <br>
+
+      </details>
+      <br>  
+        
         
                 
 * ## 시스템
