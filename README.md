@@ -17,6 +17,7 @@
     * 알고보면 알기쉬운 알고리즘 3주차
     * 자바 문법 뽀개기
     * 웹개발의 봄 스프링 1주차
+    * 웹개발의 봄 스프링 2주차
 * #### 시스템   
     * 면접
 
@@ -1192,6 +1193,9 @@
         ``` 
         이 부분에 [mvnrepository](https://mvnrepository.com/artifact/org.json/json/20210307) 에서 사용할 플러그인을 구하신 다음에   
         `implementation group: 'org.json', name: 'json', version: '20210307'` 이 부분을 추가해주시면 됩니다.   
+        </details>
+        <br>
+        
       * <details>
         <summary>느낀 점</summary>
         <br>
@@ -1213,8 +1217,64 @@
 
       </details>
       <br>  
+
+
+  * ### 웹개발의 봄 스프링 2주차
+    * #### JPA, Lombok, DTO, H2, Spring
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+  
+        JPA 는 RDB 를 접근성이 용이하게끔 하기 위해 사용합니다.   
+        `"SELECT * FROM table"`과 같은 query 문들로 코드베이스가 복잡해지는 것을 방지합니다.   
+        `extends JpaRepository<MyClass, Long>` 요 부분이 jpa 입니다.   
         
+        Lombok 또한 스프링 하면 빠질 수 없는 존재인 것 같습니다.   
+        `@Getter`, `@Setter` , `@NoArgsConstructor`, `@AllArgsConstructor`, `@Builder` 정도는 알고 있었지만 `@RequiredArgsConstructor`는 처음 봐서 검색해봤습니다.
         
+        `@RequiredArgsConstructor` 는 `finally`나 `@NotNull`을 constructor에서 받아나갈 때 사용하는 constructor 입니다. 
+        
+        또한 제가 모르고 있던 내용 중에   
+        ```
+        @MappedSuperclass
+        @EntityListeners(AuditingEntityListener.class)
+        ```   
+        같이 공통된 내용을 부모로 상속할 수 있다는 것도 처음 배웠습니다.   
+        <br>
+        ![](img/spring_week_2_mapped_super_class.png)      
+        설명이 잘 된 사진   
+
+        그 외에도 Data Transfer Object 를 사용하는 것이나   
+        기본적인 Controller, Service, Repository, DTO, Model 구조도 나왔습니다.   
+        </details>
+        <br>
+  
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+        
+        부족한 점이 없는 좋은 강의였습니다.   
+        동기분들의 예기로는 @annotation 들에 대한 설명이 조금 부족하다는 예기도 있었습니다만   
+        부족하면 우리는 구글링으로 채워나가면 됩니다.   
+        <br>
+        역시 구글은 최고의 사수... 파망은 갓갓갓인 것인가?   
+        </details>
+        <br>
+  
+      * <details>
+        <summary>퀴즈</summary>
+        <br>
+        
+        퀴즈로는 기본적인 CRUD 를 spring 으로 구성하는 것입니다.   
+        저의 정답
+          * [Person](sparta/backend/spring/week2/src/main/java/com/sparta/week2/domain/Person.java)
+          * [PersonRequestDTO](sparta/backend/spring/week2/src/main/java/com/sparta/week2/domain/PersonRequestDTO.java)
+          * [PersonRepository](sparta/backend/spring/week2/src/main/java/com/sparta/week2/domain/PersonRepository.java)
+          * [PersonService](sparta/backend/spring/week2/src/main/java/com/sparta/week2/service/PersonService.java)
+          * [PersonController](sparta/backend/spring/week2/src/main/java/com/sparta/week2/controller/PersonController.java)
+        </details>
+        <br>
+  
                 
 * ## 시스템
     * ### 면접
