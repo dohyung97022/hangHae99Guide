@@ -1069,6 +1069,37 @@
         <summary>수업에서 제공된 내용</summary>
         <br>
   
+        ![](img/자바%20문법%20뽀개기_exception.PNG)   
+        노션을 통해 좋은 표를 공유해줍니다.   
+        java 내에 대표적인 throwable 이 나온 표입니다.   
+        
+        `Error`   
+        프로그램 내의 심각한 문제를 나타냅니다.   
+        
+        `OutOfMemoryError`
+        jvm 내에 힙이라는 메모리 할당 공간을 받습니다.   
+        jvm 이 활용할 수 있는 메모리 공간이 떨어지면 OutOfMemoryError 를 반환합니다.
+        
+        `Exception`   
+        예외로서 프로그래머가 처리해야 합니다.   
+        
+        `RuntimeException`   
+        프로그램의 실행 중 나타나는 exception.   
+        저는 IndexOutOfBounds 를 많이 봅니다.   
+        
+        `IOException`   
+        Input, Output 관련 exception.    
+        파일/소켓 exception 이 대표적입니다.
+
+        ```
+        try{
+          sout("실행중")
+        }catch (Exception e){
+          sout(String.format("예외 %s 가 나타납니다.", e.getMessage()))
+        }finally{
+          sout("finally는 try catch 와 상관없이 무조건 실행됩니다.")
+        }
+        ```
         </details>
         <br>
 
@@ -1076,6 +1107,11 @@
         <summary>느낀 점</summary>
         <br>
 
+        예외처리 중요하다고 생각합니다.   
+        항상 function을 짜면 뒤에 throws를 넣고 직접 exception class를 만들어주는 것이 정석입니다.   
+        aws api 같은 곳만 봐도 aws에서 직접 만든 exception들이 수두륵합니다.   
+        하지만 exception을 많이 추가함으로서 코드베이스가 필요 이상으로 복잡해지는 것은 주객이 전도된 일이라고 생각합니다.      
+        절대 귀찮아서 핑계대는 것이 아닙니다.... ㅋㅋ   
         </details>
         <br>
 
