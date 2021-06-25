@@ -16,6 +16,7 @@
     * 알고보면 알기쉬운 알고리즘 2주차
     * 알고보면 알기쉬운 알고리즘 3주차
     * 자바 문법 뽀개기
+    * 웹개발의 봄 스프링 1주차
 * #### 시스템   
     * 면접
 
@@ -1118,6 +1119,97 @@
     * <details>
       <summary>숙제</summary>
       <br>
+
+      </details>
+      <br>  
+
+
+  * ### 웹개발의 봄 스프링 1주차
+    * #### 기초 문법
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+  
+        위의 자바 문법 뽀개기 기초편을 들으셨다면 반복되는 내용들입니다.   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        안다 싶으면 빠르게 넘어갑시다.   
+        당신의 시간은 소중하니까요.   
+        </details>
+        <br>
+
+    * #### 브라우저에 나타내보기
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+ 
+        `@RestController`   
+        `@GetMapping`   
+        ```
+        @GetMapping("/courses")
+        public Course getCourses() {
+          Course course = new Course();
+          course.setTitle("웹개발의 봄 스프링");
+          course.setDays(35);
+          course.setTutor("남병관");
+          return course;
+        }
+        ```
+        스프링에서 나오는 MVC 모델의 C를 간략하게 소개합니다.   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>  
+        
+        맛보기로만 보여주는 것 같습니다.   
+        진행 하면서 조금씩 자세하게 나오겠죠?   
+        </details>
+        <br>
+    
+    * #### GRADLE
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+  
+        GRADLE 이란 외부 dependency 를 불러오는 방법입니다.   
+        build.gradle 을 보시면   
+        ```
+        dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        compileOnly 'org.projectlombok:lombok'
+        runtimeOnly 'mysql:mysql-connector-java'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        }
+        ``` 
+        이 부분에 [mvnrepository](https://mvnrepository.com/artifact/org.json/json/20210307) 에서 사용할 플러그인을 구하신 다음에   
+        `implementation group: 'org.json', name: 'json', version: '20210307'` 이 부분을 추가해주시면 됩니다.   
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        이번 내용들은 처음 알았네요.   
+        저는 mvn을 사용했어서 xml? yaml? 파일을 변동했었는데   
+        npm 처럼 mvn 도 플럭그인을 찾을 수 있는 웹사이트가 있다는 것은 처음 알았습니다.   
+        gradle 도 처음 사용해봤습니다.   
+        </details>
+        <br>
+
+    * <details>
+      <summary>숙제</summary>
+      <br>
+      
+      이번에 제공된 숙제는 `@RestController`, `@GetMapping`을 사용하여 클래스를 작성하고   
+      그 클래스의 객체를 response 로 리턴하는 것이였습니다.   
+      [저의 정답](sparta/backend/spring/week1)
 
       </details>
       <br>  
