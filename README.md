@@ -1401,6 +1401,64 @@
     [basic.js](sparta/backend/spring/week4/src/main/resources/static/basic.js)
     </details>
     <br>
+
+  * ### 웹개발의 봄 스프링 5주차
+    * #### AWS, GRADLE build
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
+
+        스프링을 AWS에 올리는 방법에 대하여 배웁니다.   
+        AWS에 대한 내용은 웹 기초 5주차 때 배우지만 역시 다른 프레임워크를 배울 때는 새로운 느낌으로 다시 시작합니다.   
+        
+        jdk ubuntu 설치   
+        `sudo apt-get install openjdk-8-jdk`   
+        설치 확인   
+        `java -version`   
+        실행   
+        `java -jar 파일명.jar`   
+        포트 포워딩   
+        `sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080`   
+        nohup 배포 지속   
+        `nohup java -jar 파일명.jar &`   
+        
+        제공되지 않았지만 알아두면 좋은 내용   
+        `server.port = 80` 를 application.properites 에 추가하시면 :8080 하실필요 없습니다.   
+        물론 https를 사용하신다면 443을 넣어두셔야 합니다.   
+        포트포워딩을 sh파일에 넣어서 관리하시는 것도 좋지만 간단하게 해결할 수도 있습니다.   
+        
+        다만 포트포워딩 코드는 유용해서 어디 기록해두시고 두고두고 사용하시면 좋을 것 같아요.   
+        </details>
+        <br>
+
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+
+        사랑하는 aws 수업이 돌아왔습니다.   
+        nohup같은 내용은 웹개발 5주차의 내용이 반복되지만 반복 숙달도 공부라서 따라하도록 합시다.   
+        
+        가비아의 DNS? 가 한국 주변에 위치하여 더 빠른지는 모르겠지만   
+        강의 자료들은 모두 가비아를 사용하는 것 같습니다.   
+        조금 더 전문적으로 사용하고 싶으시다면 AWS의 route53를 사용하시는 것을 추천드립니다.   
+        aws의 내부 서비스와 직접적인 연결이 가능합니다.   
+        너무나 유용...   
+        
+        http://selectshop.wanderer99.com/
+        
+        도메인을 사는데 돈이 아까워서 이전 프로젝트에서 레코드만 바꿔 올렸다는 것은 팀원들에게 비밀 ㅋㅋ   
+        </details>
+        <br>
+
+    * <details>
+      <summary>숙제</summary>
+      <br>
+
+      직접 서버에 올린 url을 보여주는 것이 숙제입니다.   
+      수업을 잘 따라오셨다면 숙제는 문제가 없습니다.   
+      [나의 정답](http://selectshop.wanderer99.com/)
+      </details>
+      <br>
                 
 * ## 시스템
     * ### 면접
