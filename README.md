@@ -1181,7 +1181,7 @@
         <summary>수업에서 제공된 내용</summary>
         <br>
   
-        GRADLE 이란 외부 dependency 를 불러오는 방법입니다.   
+        GRADLE 이란 빌드를 간략하게 해주는 툴입니다.   
         build.gradle 을 보시면   
         ```
         dependencies {
