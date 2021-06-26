@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class MemoController {
 
     @GetMapping("/api/memos")
     public List<Memo> readMemo() {
-        return memoRepository.findAllByOrderByModifiedAtDesc();
+        return memoRepository.findAllByCreatedAtGreaterThanOrderByCreatedAtDesc(LocalDateTime.now().minusDays(1));
     }
 
     @DeleteMapping("/api/memos/{id}")

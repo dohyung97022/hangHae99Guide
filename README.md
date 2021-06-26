@@ -18,6 +18,8 @@
     * 자바 문법 뽀개기
     * 웹개발의 봄 스프링 1주차
     * 웹개발의 봄 스프링 2주차
+    * 웹개발의 봄 스프링 3주차
+    * 웹개발의 봄 스프링 4주차
 * #### 시스템   
     * 면접
 
@@ -1274,7 +1276,131 @@
           * [PersonController](sparta/backend/spring/week2/src/main/java/com/sparta/week2/controller/PersonController.java)
         </details>
         <br>
+    
+  * ### 웹개발의 봄 스프링 3주차
+    * #### HTML, CSS, Javascript 기초, 2주차 복습
+      * <details>
+        <summary>수업에서 제공된 내용</summary>
+        <br>
   
+        웹개발 기초 강의에서의 내용들이 반복되어 나옵니다.   
+        또한 2주차 때 배운 Repository,Service,Controller의 내용들을 복습합니다.   
+        
+        수업의 진행은 [메모장](http://spring.spartacodingclub.kr/timeline) 을 만들며   
+        spring과 연결하는 것을 배우면서 기초 내용들을 적용합니다.   
+        </details>
+        <br>
+  
+      * <details>
+        <summary>느낀 점</summary>
+        <br>
+  
+        이번 강의에서는 복습하는 내용들을 진행하면서도 새롭게 배우는 내용이 2개 숨어있었습니다.   
+        <br>
+        첫번째로   
+        Timestamped 에서 `@MappedSuperclass` 를 사용하면서 실제 Timestamed의 내용이 response에서 나오지 않는데 
+        강의 중에서는 해당 클래스에서 `@Getter` 를 추가하지 않았고, 또  Application 에서 `@EnableJpaAuditing`를 추가하지 않아서 그렇다고 간략하게 나오는데...   
+        <br>
+        `@Getter`는 스프링에서 사용한다 치고   
+        `@EnableJpaAuditing` 요녀석을 모르는데...   
+        <br>
+        스프링 api 문서에서는 "Annotation to enable auditing in JPA via annotation configuration." 이라고 나옵니다.   
+        간략히 하면 @annotation 으로 jpa 의 적용이 가능하게 하는 @annotation 입니다.   
+        정확히 하면 [Timestamped](sparta/backend/spring/week3/build/classes/java/main/com/sparta/week3/domain/Timestamped.class) 클래스에서 `@CreatedDate` 와 `@LastModifiedDate` 이 
+        적용되게 하는 @annotation 인 것 같습니다.   
+        <br>
+        `@CreatedDate`랑 `@LastModifiedDate`는 기본적으로 많이 사용한다고 강의에서 나오니까   
+        `@EnableJpaAuditing`은 습관적으로 추가하는 것이 좋을 것 같아요.
+        <br>
+        두번째로   
+        숙제가 정말 즈어어엉말 좋은 내용입니다.   
+        숙제에 대한 설명은 아래 드랍다운 ㄱㄱ    
+        
+        </details>
+        <br>
+  
+    * <details>
+      <summary>숙제</summary>
+      <br>
+  
+      이번 강의에서의 숙제는   
+      게시글 중 어제부터 계시된 글을 게시된 순서로 jpa에서 받으세요.   
+      라는 숙제였습니다.   
+      우선 [spring 공식 query 표](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) 를 참고하면서 만들고 있었습니다.   
+      그런데 단일한 예시만 나와서 두가지 조건이 같이 사용되는 방법을 몰라서 구글링으로 삽질하다 찾았습니다.   
+      <br>
+      `findAllBy CreatedAt GreaterThan OrderBy CreatedAtDesc` 다음과 같은 순서로 이어집니다.   
+      여기에서 CreatedAt GreaterThan 은 CreatedAt의 타입인 `LocalDateTime`을 변수로 받아 비교하는데 사용합니다.   
+      이어지는 순서는 SQL 쿼리 문의 순서와도 같습니다.    
+      필터 조건을 먼저 주고, 그 다음에 순서를 나열합니다.   
+      
+      좋은 퀴즈여서 즐거웠습니다.   
+      </details>
+      <br>
+
+* ### 웹개발의 봄 스프링 4주차
+  * #### 수업 주제
+    * <details>
+      <summary>수업에서 제공된 내용</summary>
+      <br>
+      
+      전체적인 [템플릿](http://spring.spartacodingclub.kr/) 을 제공합니다.   
+      위 템플릿을 조작하며 3주차 때 배운 내용들을 다시 다 복습합니다.    
+      <br>
+      다만 이번 주차에는 네이버 쇼핑 검색 api를 추가하며 spring 에서 cron job를 사용하는 방법, bean 과 `@Component`의 이해가 추가적으로 나옵니다.   
+      
+      `@Scheduled(cron = "0 0 1 * * *")`   
+      이 function 앞에 들어옵니다.   
+      
+      각각의 값들은 초, 분, 시, 일, 월, 주 순서입니다.   
+      위의 값은 1시마다 cron job function을 수행하라는 내용입니다.   
+      
+      주를 어떻게 설정하는지 궁굼해져서 api를 찾아봤는데   
+      "For example, "0 * * * * MON-FRI" means once per minute on weekdays   (at the top of the minute - the 0th second)."   
+      이라고 나옵니다.   
+      
+      초가 0초가 되는 것은 매 분이 시작되는 지점입니다.   
+      MON-FRI 와 같이 주일을 설정한 것을 볼 수 있습니다.   
+      
+      `@Scheduled`가 실행됙기 위해서는 application 위에 `@EnableScheduling`를 추가하셔야 합니다.   
+      
+      또한 `@Component`에 대한 내용이 제공될 때   
+      Spring 에서 자동적으로 찾아서 사용할 수 있게 하며 `@Service`, `@RestController` 또한 이 원리로 주고 받을 수 있습니다.   
+      
+      bean에 대한 설명은 없었지만 이는 조금 더 심화된 내용이여서 배제한 것 같습니다.
+      </details>
+      <br>
+
+    * <details>
+      <summary>느낀 점</summary>
+      <br>
+          
+      cron job같이 모르는 내용이 나왔을 때 유심히 들었습니다.   
+      cron job는 aws의 cloudwatch alarm에서 한번 사용한 적은 있지만   
+      spring에서도 이렇게 편리하게 사용이 가능하게 했는지는 몰랐습니다.   
+      역시 봄빛이지~   
+      
+      `@bean`에 대한 내용이 기억났을 때 spring의 내부 구조를   
+      저도 실은 아직 완벽하게 모릅니다...   
+      이 강의들을 빨리 듣고 인프런에서 강의를 들어야 겠습니다.   
+      토비의 스프링도 유튜브에 강의가 있던 것 같은데...   
+      `flush`와 같은 function 들도 배우고 싶어요.   
+      전에 듣던 외국인 강의는 정말 간략하게 소개만 해서 이게 뭔지 이해가 아직 안되었습니다.   
+      계획에서 남은건 전진뿐!!!!   
+      </details>
+      <br>
+
+  * <details>
+    <summary>숙제</summary>
+    <br>
+
+    이번 숙제는 최저가를 변경하는 request의 controller, requestDto를 생성하고 js와 연결하는 숙제였습니다.   
+    저의 정답 :   
+    [ProductRestController](sparta/backend/spring/week4/src/main/java/com/sparta/week4/controller/ProductRestController.java)   
+    [ProductMypriceRequestDto](sparta/backend/spring/week4/src/main/java/com/sparta/week4/models/ProductMypriceRequestDto.java)   
+    [basic.js](sparta/backend/spring/week4/src/main/resources/static/basic.js)
+    </details>
+    <br>
                 
 * ## 시스템
     * ### 면접
@@ -1322,6 +1448,7 @@
           ![](img/최종합격.jpg)
           </details>
           <br>
+  
 
 <br>
 
