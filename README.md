@@ -1339,127 +1339,127 @@
       </details>
       <br>
 
-* ### 웹개발의 봄 스프링 4주차
-  * #### 수업 주제
-    * <details>
-      <summary>수업에서 제공된 내용</summary>
-      <br>
-      
-      전체적인 [템플릿](http://spring.spartacodingclub.kr/) 을 제공합니다.   
-      위 템플릿을 조작하며 3주차 때 배운 내용들을 다시 다 복습합니다.    
-      <br>
-      다만 이번 주차에는 네이버 쇼핑 검색 api를 추가하며 spring 에서 cron job를 사용하는 방법, bean 과 `@Component`의 이해가 추가적으로 나옵니다.   
-      
-      `@Scheduled(cron = "0 0 1 * * *")`   
-      이 function 앞에 들어옵니다.   
-      
-      각각의 값들은 초, 분, 시, 일, 월, 주 순서입니다.   
-      위의 값은 1시마다 cron job function을 수행하라는 내용입니다.   
-      
-      주를 어떻게 설정하는지 궁굼해져서 api를 찾아봤는데   
-      "For example, "0 * * * * MON-FRI" means once per minute on weekdays   (at the top of the minute - the 0th second)."   
-      이라고 나옵니다.   
-      
-      초가 0초가 되는 것은 매 분이 시작되는 지점입니다.   
-      MON-FRI 와 같이 주일을 설정한 것을 볼 수 있습니다.   
-      
-      `@Scheduled`가 실행됙기 위해서는 application 위에 `@EnableScheduling`를 추가하셔야 합니다.   
-      
-      또한 `@Component`에 대한 내용이 제공될 때   
-      Spring 에서 자동적으로 찾아서 사용할 수 있게 하며 `@Service`, `@RestController` 또한 이 원리로 주고 받을 수 있습니다.   
-      
-      bean에 대한 설명은 없었지만 이는 조금 더 심화된 내용이여서 배제한 것 같습니다.
-      </details>
-      <br>
-
-    * <details>
-      <summary>느낀 점</summary>
-      <br>
-          
-      cron job같이 모르는 내용이 나왔을 때 유심히 들었습니다.   
-      cron job는 aws의 cloudwatch alarm에서 한번 사용한 적은 있지만   
-      spring에서도 이렇게 편리하게 사용이 가능하게 했는지는 몰랐습니다.   
-      역시 봄빛이지~   
-      
-      `@bean`에 대한 내용이 기억났을 때 spring의 내부 구조를   
-      저도 실은 아직 완벽하게 모릅니다...   
-      이 강의들을 빨리 듣고 인프런에서 강의를 들어야 겠습니다.   
-      토비의 스프링도 유튜브에 강의가 있던 것 같은데...   
-      `flush`와 같은 function 들도 배우고 싶어요.   
-      전에 듣던 외국인 강의는 정말 간략하게 소개만 해서 이게 뭔지 이해가 아직 안되었습니다.   
-      계획에서 남은건 전진뿐!!!!   
-      </details>
-      <br>
-
-  * <details>
-    <summary>숙제</summary>
-    <br>
-
-    이번 숙제는 최저가를 변경하는 request의 controller, requestDto를 생성하고 js와 연결하는 숙제였습니다.   
-    저의 정답 :   
-    [ProductRestController](sparta/backend/spring/week4/src/main/java/com/sparta/week4/controller/ProductRestController.java)   
-    [ProductMypriceRequestDto](sparta/backend/spring/week4/src/main/java/com/sparta/week4/models/ProductMypriceRequestDto.java)   
-    [basic.js](sparta/backend/spring/week4/src/main/resources/static/basic.js)
-    </details>
-    <br>
-
- * ### 웹개발의 봄 스프링 5주차
-    * #### AWS, GRADLE build
+  * ### 웹개발의 봄 스프링 4주차
+    * #### 복습, @Scheduled, @Component
       * <details>
         <summary>수업에서 제공된 내용</summary>
         <br>
-
-        스프링을 AWS에 올리는 방법에 대하여 배웁니다.   
-        AWS에 대한 내용은 웹 기초 5주차 때 배우지만 역시 다른 프레임워크를 배울 때는 새로운 느낌으로 다시 시작합니다.   
         
-        jdk ubuntu 설치   
-        `sudo apt-get install openjdk-8-jdk`   
-        설치 확인   
-        `java -version`   
-        실행   
-        `java -jar 파일명.jar`   
-        포트 포워딩   
-        `sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080`   
-        nohup 배포 지속   
-        `nohup java -jar 파일명.jar &`   
+        전체적인 [템플릿](http://spring.spartacodingclub.kr/) 을 제공합니다.   
+        위 템플릿을 조작하며 3주차 때 배운 내용들을 다시 다 복습합니다.    
+        <br>
+        다만 이번 주차에는 네이버 쇼핑 검색 api를 추가하며 spring 에서 cron job를 사용하는 방법, bean 과 `@Component`의 이해가 추가적으로 나옵니다.   
         
-        제공되지 않았지만 알아두면 좋은 내용   
-        `server.port = 80` 를 application.properites 에 추가하시면 :8080 하실필요 없습니다.   
-        물론 https를 사용하신다면 443을 넣어두셔야 합니다.   
-        포트포워딩을 sh파일에 넣어서 관리하시는 것도 좋지만 간단하게 해결할 수도 있습니다.   
+        `@Scheduled(cron = "0 0 1 * * *")`   
+        이 function 앞에 들어옵니다.   
         
-        다만 포트포워딩 코드는 유용해서 어디 기록해두시고 두고두고 사용하시면 좋을 것 같아요.   
+        각각의 값들은 초, 분, 시, 일, 월, 주 순서입니다.   
+        위의 값은 1시마다 cron job function을 수행하라는 내용입니다.   
+        
+        주를 어떻게 설정하는지 궁굼해져서 api를 찾아봤는데   
+        "For example, "0 * * * * MON-FRI" means once per minute on weekdays   (at the top of the minute - the 0th second)."   
+        이라고 나옵니다.   
+        
+        초가 0초가 되는 것은 매 분이 시작되는 지점입니다.   
+        MON-FRI 와 같이 주일을 설정한 것을 볼 수 있습니다.   
+        
+        `@Scheduled`가 실행됙기 위해서는 application 위에 `@EnableScheduling`를 추가하셔야 합니다.   
+        
+        또한 `@Component`에 대한 내용이 제공될 때   
+        Spring 에서 자동적으로 찾아서 사용할 수 있게 하며 `@Service`, `@RestController` 또한 이 원리로 주고 받을 수 있습니다.   
+        
+        bean에 대한 설명은 없었지만 이는 조금 더 심화된 내용이여서 배제한 것 같습니다.
         </details>
         <br>
-
+  
       * <details>
         <summary>느낀 점</summary>
         <br>
-
-        사랑하는 aws 수업이 돌아왔습니다.   
-        nohup같은 내용은 웹개발 5주차의 내용이 반복되지만 반복 숙달도 공부라서 따라하도록 합시다.   
+            
+        cron job같이 모르는 내용이 나왔을 때 유심히 들었습니다.   
+        cron job는 aws의 cloudwatch alarm에서 한번 사용한 적은 있지만   
+        spring에서도 이렇게 편리하게 사용이 가능하게 했는지는 몰랐습니다.   
+        역시 봄빛이지~   
         
-        가비아의 DNS? 가 한국 주변에 위치하여 더 빠른지는 모르겠지만   
-        강의 자료들은 모두 가비아를 사용하는 것 같습니다.   
-        조금 더 전문적으로 사용하고 싶으시다면 AWS의 route53를 사용하시는 것을 추천드립니다.   
-        aws의 내부 서비스와 직접적인 연결이 가능합니다.   
-        너무나 유용...   
-        
-        http://selectshop.wanderer99.com/
-        
-        도메인을 사는데 돈이 아까워서 이전 프로젝트에서 레코드만 바꿔 올렸다는 것은 팀원들에게 비밀 ㅋㅋ   
+        `@bean`에 대한 내용이 기억났을 때 spring의 내부 구조를   
+        저도 실은 아직 완벽하게 모릅니다...   
+        이 강의들을 빨리 듣고 인프런에서 강의를 들어야 겠습니다.   
+        토비의 스프링도 유튜브에 강의가 있던 것 같은데...   
+        `flush`와 같은 function 들도 배우고 싶어요.   
+        전에 듣던 외국인 강의는 정말 간략하게 소개만 해서 이게 뭔지 이해가 아직 안되었습니다.   
+        계획에서 남은건 전진뿐!!!!   
         </details>
         <br>
-
+  
     * <details>
       <summary>숙제</summary>
       <br>
-
-      직접 서버에 올린 url을 보여주는 것이 숙제입니다.   
-      수업을 잘 따라오셨다면 숙제는 문제가 없습니다.   
-      [나의 정답](http://selectshop.wanderer99.com/)
+  
+      이번 숙제는 최저가를 변경하는 request의 controller, requestDto를 생성하고 js와 연결하는 숙제였습니다.   
+      저의 정답 :   
+      [ProductRestController](sparta/backend/spring/week4/src/main/java/com/sparta/week4/controller/ProductRestController.java)   
+      [ProductMypriceRequestDto](sparta/backend/spring/week4/src/main/java/com/sparta/week4/models/ProductMypriceRequestDto.java)   
+      [basic.js](sparta/backend/spring/week4/src/main/resources/static/basic.js)
       </details>
       <br>
+  
+  * ### 웹개발의 봄 스프링 5주차
+    * #### AWS, GRADLE build
+      * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+  
+          스프링을 AWS에 올리는 방법에 대하여 배웁니다.   
+          AWS에 대한 내용은 웹 기초 5주차 때 배우지만 역시 다른 프레임워크를 배울 때는 새로운 느낌으로 다시 시작합니다.   
+          
+          jdk ubuntu 설치   
+          `sudo apt-get install openjdk-8-jdk`   
+          설치 확인   
+          `java -version`   
+          실행   
+          `java -jar 파일명.jar`   
+          포트 포워딩   
+          `sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080`   
+          nohup 배포 지속   
+          `nohup java -jar 파일명.jar &`   
+          
+          제공되지 않았지만 알아두면 좋은 내용   
+          `server.port = 80` 를 application.properites 에 추가하시면 :8080 하실필요 없습니다.   
+          물론 https를 사용하신다면 443을 넣어두셔야 합니다.   
+          포트포워딩을 sh파일에 넣어서 관리하시는 것도 좋지만 간단하게 해결할 수도 있습니다.   
+          
+          다만 포트포워딩 코드는 유용해서 어디 기록해두시고 두고두고 사용하시면 좋을 것 같아요.   
+          </details>
+          <br>
+  
+      * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          사랑하는 aws 수업이 돌아왔습니다.   
+          nohup같은 내용은 웹개발 5주차의 내용이 반복되지만 반복 숙달도 공부라서 따라하도록 합시다.   
+          
+          가비아의 DNS? 가 한국 주변에 위치하여 더 빠른지는 모르겠지만   
+          강의 자료들은 모두 가비아를 사용하는 것 같습니다.   
+          조금 더 전문적으로 사용하고 싶으시다면 AWS의 route53를 사용하시는 것을 추천드립니다.   
+          aws의 내부 서비스와 직접적인 연결이 가능합니다.   
+          너무나 유용...   
+          
+          http://selectshop.wanderer99.com/
+          
+          도메인을 사는데 돈이 아까워서 이전 프로젝트에서 레코드만 바꿔 올렸다는 것은 팀원들에게 비밀 ㅋㅋ   
+          </details>
+          <br>
+  
+    * <details>
+        <summary>숙제</summary>
+        <br>
+  
+        직접 서버에 올린 url을 보여주는 것이 숙제입니다.   
+        수업을 잘 따라오셨다면 숙제는 문제가 없습니다.   
+        [나의 정답](http://selectshop.wanderer99.com/)
+        </details>
+        <br>
                 
 * ## 시스템
     * ### 면접
