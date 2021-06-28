@@ -7,13 +7,9 @@ $(document).ready(function () {
             function (response) {
                 for (let i = 0; i < response.length; i++) {
                     let memo = response[i];
-                    // memo.createdAt
-                    // memo.createdBy
-                    // memo.modifiedAt
-                    // memo.title
                     let date = new Date(memo.modifiedAt).toLocaleString("en-US");
                     let HTMLTemplate = `
-                    <div class="flex-grid-item" onclick="redirectToInspectMemo(${memo.id})">
+                    <div class="flex-grid-item cursor-pointer" onclick="redirectToInspectMemo(${memo.id})">
                         <div class="item-title">${memo.title}</div>
                         <div class="item-writer-datetime">
                             <div class="item-writer">${memo.createdBy}</div>

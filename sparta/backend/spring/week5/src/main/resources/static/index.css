@@ -29,6 +29,10 @@ header button{
     margin: 10px;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 .blank {
     height: 0;
 }

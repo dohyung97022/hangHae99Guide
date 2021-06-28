@@ -7,9 +7,7 @@ import com.sparta.week5.service.MemoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,7 +17,7 @@ public class MemoController {
 
     @GetMapping("/api/memos")
     public List<Memo> getMemos(){
-        return memoRepository.findAllByOrderByModifiedAt();
+        return memoRepository.findAllByOrderByModifiedAtDesc();
     }
 
     @GetMapping("/api/memos/{id}")

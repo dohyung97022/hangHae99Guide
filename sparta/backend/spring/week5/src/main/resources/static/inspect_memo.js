@@ -6,7 +6,20 @@ $(document).ready(function () {
         url: `/api/memos/${memoId}`,
         success:
             function (response) {
-                console.log(response);
+                const memoHTML = `
+                <div class = "write-item">
+                    <div class="title item">
+                        <p>제목</p> <p>${response.title}</p>
+                    </div>
+                    <div class="created-by item">
+                        <p>작성자명</p> <p>${response.createdBy}</p>
+                    </div>
+                    <div class="contents item">
+                        <p>내용</p> <p class="contents-text">${response.content}</p>
+                    </div>
+                </div>
+                `
+                $('.write-container').append(memoHTML);
             }
     })
 });
