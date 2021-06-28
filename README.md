@@ -1402,7 +1402,7 @@
     </details>
     <br>
 
-  * ### 웹개발의 봄 스프링 5주차
+ * ### 웹개발의 봄 스프링 5주차
     * #### AWS, GRADLE build
       * <details>
         <summary>수업에서 제공된 내용</summary>

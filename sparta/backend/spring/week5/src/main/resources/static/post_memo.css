@@ -1,0 +1,30 @@
+header{
+    text-align: center;
+}
+
+header button{
+    position: absolute;
+    right: 40px;
+    top:20px;
+}
+
+.write-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.container-item{
+    margin: auto;
+    text-align: center;
+}
+
+.contents-item input{
+    height: 100px;
+}
+
+.write-container button{
+    width: 177px;
+    margin : auto;
+    margin-top: 10px;
+}
