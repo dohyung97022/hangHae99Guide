@@ -1611,6 +1611,245 @@
         
         </details>
         <br>
+  
+  * ### Spring 심화반 3주차
+      * #### 테스트
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+       
+          블랙박스 테스팅   
+            * 내부 구조나 작동 원리를 모르는 상태에서의 검사 방법   
+              사용자의 테스팅    
+              어떠한 기능을 할지 예상이 안되는 상황에서 사용자가 원하는 기능이 예측대로 동작 하는지 확인하는 방식   
+          
+          개발자 테스트   
+            * 개발자 본인이 작성한 코드를 검증하는 테스트 코드를 활용하는 방법      
+              테스트 자동화도 가능   
+              기존 코드가 동작한다는 보증   
+              전체적인 개발 시간이 오래 걸린다.   
+              코드가 변경되면 테스트 코드 또한 유지 보수가 되어야 한다.    
+              
+          ![](img/testingCost.PNG)    
+          실제 product 으로 출시 된 이후에 error 가 발생할 경우 그 비용은 크게 늘어납니다.   
+          마케팅, 출시까지 완료된 제품이 에러 때문에 구매가 일어나지 않는다고 생각해시면,   
+          그 문제가 얼마나 심각한지 알 수 있습니다.   
+          구글 광고는 클릭당 1000원 이상도 나옵니다. 생각만 해도 아찔하죠?   
+          </details>
+          <br>
+  
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          위 내용은 테스트의 필요성을 강조하는 내용이였습니다.   
+          테스트 케이스를 작성하는 개발자가 되자는 다짐을 합시다.   
+          나는 귀찮지 않다. 나는 귀찮지 않다... 나는...   
+          </details>
+          <br>
+  
+      * #### JUnit
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+          
+          테스트 케이스 작성   
+          ctrl+shift+t   
+          나오는 화면에서 JUnit 을 선택하면 됩니다.   
+          
+          ```java
+          @Test
+          @DisplayName("URL 형태 : 비정상 (null)")
+          ``` 
+          다음과 같은 @Annotation 이 사용됩니다.   
+          
+          JUnit 의 테스트는 `assert`를 많이 사용합니다.   
+          
+          `assert`   
+          의 의미는 "되어야 한다" 라는 의미입니다.   
+          
+          `assertNull(val)`   
+          val 이 null 이 되어야 한다.    
+          `assertNotNull(val)`   
+          val 이 null 이 되면 안된다.        
+          `assertEquals(val1, val2)`    
+          val1 이 val2 와 일치해야 한다.    
+          
+          수업에서 제공되지 않은 추가적인 내용    
+          `assertEquals(val1,val2,"msgStr")`   
+          message 용도의 string 을 추가할 수 있습니다.      
+          ```java
+          assertAll(
+             ()->assertEquals(1,2),
+             ()->assertEquals(3,3),
+             ()->assertEquals(4,4)
+          );
+          ```
+          assertAll 내의 모든 assert 가 수행되어야 한다.   
+          `assertArrayEquals(arr1, arr2)`   
+          array 를 위한 function 은 따로 있습니다.   
+          `assertTimeOut(duration, executable)`      
+          람다의 수행 시간을 체크합니다. 유용할 수 있을 것 같습니다.   
+          `assertThrow(throwable, executable)`   
+          executable 을 수행하면 throwable 가 발생할 것이다.      
+          
+          그 외의 function 들은 assert 의 의미를 생각하시며 보신다면   
+          사용하는데 어려움이 없을 것이라 믿습니다.   
+          </details>
+          <br>
+  
+        * <details>
+          <summary>느낀 점</summary>
+          <br>  
+          저는 assert 는 쉬운 내용으로 알고 있어서,    
+          구글링이랑 ide 조금 만져보면서 더 추가하였습니다.   
+          수업에서는 더 간략하게 내용이 나옵니다.   
+          
+          실제로는 Assert 가 중요한 내용이 아닙니다.   
+          method 를 테스트 하고 싶을 때 testMethod 에 무엇을 넣어야 하는지 아는 것이 훨씬 더 중요합니다.   
+          그 내용은 바로 아래에 있습니다.   
+          
+          그런데 나는 왜 assert 를 파고 있었을까요...?    
+          언행 불일치...      
+          삽질 중독...    
+          </details>
+          <br>
+      
+      * #### Edge Case 작성
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+          
+          // Given   
+          // When   
+          // Then    
+          
+          테스트 케이스의 규정 같은 주석입니다.    
+          코드스니펫으로 사용하도록 합시다.    
+          
+          수업에서 edge case 를 test 하는 좋은 예시가 나왔습니다.   
+          예를 들어 url 의 valid 유무를 테스트하는 `urlValidator` 를 만들었다고 합시다.   
+          
+          url 이 주어질 수 있는 모든 edge case 를 생각해봅니다.   
+          
+          정상적으로 주어질 수 있습니다.   
+          null 일 수 있습니다.   
+          빈 문자열 일 수 있습니다.   
+          형식이 맞지 않을 수 있습니다.   
+             * http 나 https 가 아닐 수 있습니다.   
+             * .com 같은 형식으로 끝나지 않을 수 있습니다.   
+             * ASCII 가 아닐 수 있습니다.(모든 url 은 ascii 로 보내집니다)    
+             * ...etc
+          접속이 안될 수 있습니다.   
+
+          이렇게 생각해 볼 수 있습니다.    
+          
+          그렇다면 `urlValidator` 의 테스트는 어떻게 작성되어야 할까요?   
+          
+          정상일 경우    
+          ```java
+          // given
+          String url = "https://github.com/dohyung97022/hangHae99Guide";
+          // when
+          boolean isValid = UrlValidator(url);
+          // then
+          assertTrue(isValid);
+          ```
+          
+          null 일 경우   
+          ```java
+          // given
+          String url = null;
+          // when
+          boolean isValid = UrlValidator(url);
+          // then
+          assertFalse(isValid);
+          ```
+          
+          조금씩 엗지 테스트 케이스가 감이 오기 시작했습니다.      
+          
+          좋은 때에 조금 더 응용된 내용이 나옵니다.   
+          
+          위의 url 의 경우들 중에   
+          ```
+          형식이 맞지 않을 수 있습니다.
+            * http 나 https 가 아닐 수 있습니다.
+            * .com 같은 형식으로 끝나지 않을 수 있습니다.
+            * ASCII 가 아닐 수 있습니다.(모든 url 은 ascii 로 보내집니다)
+          ```
+          이 부분을 테스트 할 때에는 어떻게 해야 할까요?   
+          ```java
+          @Nested
+          @DisplayName("url 형식 케이스")
+          class urlFormCase{
+            ...
+          }
+          ``` 
+          같이 구분지어 주신다면   
+          ![](img/@TestCase@Nested.PNG)    
+          같이 정리되어 나옵니다.   
+          
+          method 가 여러가지 parameter 를 받는다면 어떻게 해야 할까요?   
+          
+          `method(val1, val2, val3)` 같이 말이죠.   
+
+          ```java
+          @Test
+          @DispalyName("methodTest")
+          class methodTest{  
+            @Nested
+            @DisplayName("val1")
+            class val1Test{
+                @Nested
+                @DisplayName("null check")
+                class val1NullTest{
+                    ...
+                } 
+            } 
+            @Nested
+            @DisplayName("val2")
+            class val2Test{
+                @Nested
+                @DisplayName("null check")
+                class val2NullTest{
+                    ...
+                } 
+            } 
+            @Nested
+            @DisplayName("val3")
+            class val3Test{
+                @Nested
+                @DisplayName("null check")
+                class val3NullTest{
+                    ...
+                } 
+            } 
+          }
+          ```
+          같이 구성하실 수 있습니다.   
+          각각의 val1과 val2, val3 의 값들을 edge case 를 다 작성하실 수 있는 것입니다.   
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+          
+          모르는 내용이 나오면 흥분해서 적습니다. ㅋㅋㅋㅋㅋㅋㅋ         
+          계속 배운다는게 프로그래밍의 매력이긴 하죠.   
+          직장으로서는 단점이기도 합니다.   
+          여하튼 이런 유용한 내용을 처음 알았다는 것이 너무 좋았습니다.      
+          이번 강의의 내용은 너무 좋았습니다.   
+          앞의 반복되던 ctrl+c, ctrl+v, 코드 설명 같은 강의들보다 훨씬 좋았습니다.   
+          </details>
+          <br>
+  
+      * <details>
+        <summary>숙제</summary>
+        <br>
+        
+        </details>
+        <br>
                 
 * ## 시스템
     * ### 면접
