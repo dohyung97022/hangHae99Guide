@@ -21,6 +21,8 @@
     * 웹개발의 봄 스프링 3주차
     * 웹개발의 봄 스프링 4주차
     * 웹개발의 봄 스프링 5주차
+    * Spring 심화반 1주차  
+    * Spring 심화반 2주차
 * #### 시스템   
     * 면접
 
@@ -981,8 +983,7 @@
       <br>
   
       </details>
-      <br>  
-  
+      <br>
 
   * ### 자바 문법 뽀개기
     * #### 기초 문법
@@ -1125,8 +1126,7 @@
       <br>
 
       </details>
-      <br>  
-
+      <br>
 
   * ### 웹개발의 봄 스프링 1주차
     * #### 기초 문법
@@ -1219,8 +1219,7 @@
       [저의 정답](sparta/backend/spring/week1)
 
       </details>
-      <br>  
-
+      <br>
 
   * ### 웹개발의 봄 스프링 2주차
     * #### JPA, Lombok, DTO, H2, Spring
@@ -1460,6 +1459,158 @@
         [나의 정답](http://selectshop.wanderer99.com/)
         </details>
         <br>
+  
+  * ### Spring 심화반 1주차
+      * #### Serverlet vs Spring
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+       
+          이번 주차에서는 스프링이란 기술이 왜 주력이 되었는지,    
+          과거에 쓰였던 serverlet 과 비교하면서 그 효용성을 강조하는 강의였습니다.    
+          
+          예를 들어...   
+          serverlet
+          ```java
+          @WebServlet(urlPatterns = "/api/products/*", loadOnStartup = 1)
+          public class AllInOneServlet extends HttpServlet {
+          // 신규 상품 등록
+          @Override
+          protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+            // 요청 Body 의 JSON -> 자바 객체
+            ProductRequestDto requestDto = null;
+            StringBuffer jb = new StringBuffer();
+            String line = null;
+            try {
+            BufferedReader reader = request.getReader();
+            while ((line = reader.readLine()) != null)
+            jb.append(line);
+              ObjectMapper objectMapper = new ObjectMapper();
+              requestDto = objectMapper.readValue(jb.toString(), ProductRequestDto.class);
+            } catch (Exception e) { /*report an error*/ }
+            // 관심 상품 DB 에 저장
+            // 자바 객체 -> JSON 으로 변환
+            ObjectMapper objectMapper = new ObjectMapper();
+            String productJson = objectMapper.writeValueAsString(product);
+
+            // 응답 보내기
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter out = response.getWriter();
+            out.print(productJson);
+            out.flush();
+            }
+          }
+          ```
+          spring   
+          ```java
+          @RestController // JSON으로 데이터를 주고받음을 선언합니다.
+          public class AllInOneController {
+          // 신규 상품 등록
+          @PostMapping("/api/products")
+          public Product createProduct(@RequestBody ProductRequestDto requestDto) throws SQLException {
+            // 관심 상품 DB 에 저장
+            // 응답 보내기
+            return product;
+            }
+          }
+          ```
+          
+          코드의 길이만 봐도 그 차이나 느껴집니다.   
+          또한 serverlet 의 경우 `HttpServletRequest request` 를 오브젝트로 받아서 사용하는데 반해,   
+          spring 은 `@PathVariable`, `@RequestParameter`, `@RequestBody` 같이 request 의 원하는 부분만 바로 사용 가능합니다.   
+          
+          `@RestController` 같이 그 리턴 타입을 json 으로 default 로 만드는 것과 같이,   
+          사용자의 편의를 위해 고려하고 간략화 한 점을 볼 수 있습니다.   
+          
+          또한 이 강의에서는 allInOne function 들을 만들어 그 코드를 리펙토링 하는 강의이기도 했습니다.    
+          전 강의의 MVC 모델의 복습이였으며, 그 용도를 더 정확하게 하는 강의였습니다.   
+          
+          예를 들어 service 가 비즈니스의 로직을 보유하고 있어야 하며,   
+          그 비즈니스 로직 또한 다양한 service 들로 구분해야 한다. 같은 내용을 강조하는 것 같습니다.   
+          
+          </details>
+          <br>
+  
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          이번 강의는 복사 붙여넣기가 많습니다.   
+          물론 serverlet 을 배우는 강의가 아니라, spring 이 serverlet 을 감싸면서 얼마나 간략하고 효용적으로 만들었는지를 알아보는 강의이기에 
+          그리 중요한 내용들이 있지는 않았습니다.     
+          
+          리펙토링 외 나머지는 복습하는 내용이라서 이해한다 싶으면 빨리 넘어가면 좋을 것 같습니다.   
+          </details>
+          <br>
+  
+  * ### Spring 심화반 2주차
+      * #### Spring Security
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+       
+          설치   
+          `implementation 'org.springframework.boot:spring-boot-starter-security'`   
+          ```
+          <properties>
+          <spring-security.version>5.3.4.RELEASE</spring-security.version>
+          <spring.version>5.2.8.RELEASE</spring.version>
+          </properties>
+          <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>${spring-security.version}</version>
+          </dependency>
+          ```
+          initializer, intellij 로 설치하셔도 상관 없습니다.   
+          
+          </details>
+          <br>
+  
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+  
+      * #### 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+   
+          </details>
+          <br>
+  
+        * <details>
+          <summary>느낀 점</summary>
+          <br>  
+          
+          </details>
+          <br>
+      
+      * #### 주제
+        * <details>
+          <summary>수업에서 제공된 내용</summary>
+          <br>
+       
+          </details>
+          <br>
+          
+        * <details>
+          <summary>느낀 점</summary>
+          <br>
+  
+          </details>
+          <br>
+  
+      * <details>
+        <summary>숙제</summary>
+        <br>
+        
+        </details>
+        <br>
                 
 * ## 시스템
     * ### 면접
@@ -1524,54 +1675,46 @@ readme 용 드랍다운. 귀찮으니 복붙 ㄱㄱ
 # 아래는 tab를 한번 하고 붙여쓰기!
       
 * ### 수업
-      * #### 수업 주제
-        * <details>
-          <summary>수업에서 제공된 내용</summary>
-          <br>
-  
-          </details>
-          <br>
-          
-        * <details>
-          <summary>느낀 점</summary>
-          <br>
-  
-          </details>
-          <br>
-        
-        * <details>
-          <summary>퀴즈</summary>
-          <br>
-  
-          </details>
-          <br>
+  * #### 수업 주제
+    * <details>
+      <summary>수업에서 제공된 내용</summary>
+      <br>
+      </details>
+      <br>
       
-      * #### 수업 주제
-        * <details>
-          <summary>수업에서 제공된 내용</summary>
-          <br>
+    * <details>
+      <summary>느낀 점</summary>
+      <br>
+      </details>
+      <br>
+    
+    * <details>
+      <summary>퀴즈</summary>
+      <br>
+      </details>
+      <br>
   
-          </details>
-          <br>
-          
-        * <details>
-          <summary>느낀 점</summary>
-          <br>
-  
-          </details>
-          <br>
-          
-        * <details>
-          <summary>퀴즈</summary>
-          <br>
-  
-          </details>
-          <br>
-  
-      * <details>
-        <summary>숙제</summary>
-        <br>
-  
-        </details>
-        <br>
+  * #### 수업 주제
+    * <details>
+      <summary>수업에서 제공된 내용</summary>
+      <br>
+      </details>
+      <br>
+      
+    * <details>
+      <summary>느낀 점</summary>
+      <br>
+      </details>
+      <br>
+      
+    * <details>
+      <summary>퀴즈</summary>
+      <br>
+      </details>
+      <br>
+  * <details>
+    <summary>숙제</summary>
+    <br>
+    </details>
+    <br>
 ```
