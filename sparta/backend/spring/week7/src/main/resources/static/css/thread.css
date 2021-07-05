@@ -1,0 +1,56 @@
+.add-thread {
+    padding-top: 10px;
+    font-size: 48px;
+    color: Dodgerblue;
+    margin: auto;
+    text-align: center;
+}
+
+#thread-container {
+    margin: 20px;
+    grid-template-columns: 100px 50px 100px;
+    grid-template-rows: 80px auto 80px;
+    column-gap: 10px;
+    row-gap: 15px;
+}
+
+#thread-container .item {
+    padding: 20px;
+    background-color: #8e8383;
+    margin-bottom: 20px;
+}
+
+#thread-container .item .article h1 {
+    text-align: center;
+}
+
+#thread-container .item .article .username-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+#thread-container .item .article .edit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+#thread-container .item .comment .content {
+    font-size: 7px;
+}
+
+#thread-container .item .comment .username-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+#thread-container .item .comment .edit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#thread-creator{
+    display: flex;
+    justify-content: center;
+}

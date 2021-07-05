@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="00만의 셀렉샵">
+    <meta property="og:description" content="관심상품을 선택하고, 최저가 알림을 확인해보세요!">
+    <meta property="og:image" content="images/og_selectshop.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/thread.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <title>나만의 셀렉샵</title>
+</head>
+<body>
+<div class="header" style="position:relative;">
+    <div th:if="${username}" id="header-title-login-user">
+        <span th:text="${username}"></span> 님의
+    </div>
+    <div id="header-title-select-shop">
+        Select Shop
+    </div>
+
+    <p id="msg" th:text="${msg}"></p>
+
+    <a th:if="${username}" class="logout-text" href="/user/logout">
+        로그아웃
+    </a>
+    <a th:unless="${username}" class="logout-text" href="/user/login">
+        로그인
+    </a>
+</div>
+<div id="see-area">
+    <div class="add-thread" th:if="${username}" th:onclick="createThreadTmpl()">
+        <i class="fas fa-plus-circle"></i>
+    </div>
+    <div class="add-thread" th:unless="${username}" th:onclick="redirect('/user/login','로그인이 필요한 기능입니다.')">
+        <i class="fas fa-plus-circle"></i>
+    </div>
+    <div id="thread-container">
+
+        <div class="item" th:each="thread : ${threads}">
+            <div class="article">
+                <h1 th:text="${thread.title}"></h1>
+                <div class="username-date">
+                    <p class="username" th:text="${thread.user?.username}"></p>
+                    <p class="date" th:text="${#temporals.format(thread.modifiedAt, 'yy-MM-dd HH:mm')}"></p>
+                </div>
+                <div class="content" th:text="${thread.content}">
+                </div>
+                <div class="edit">
+                    <div>수정</div>
+                    <div>삭제</div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="comment-container">
+                <div class="comment">
+                    <div class="username-date">
+                        <p class="username">김도형</p>
+                        <p class="date">21/07/05</p>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eum necessitatibus tempora
+                        voluptates. Ab blanditiis cumque dolorum ea eos perferendis sed vero voluptate. Assumenda
+                        distinctio dolores officia quasi quo repellendus?
+                    </div>
+                    <div class="edit">
+                        <div>수정</div>
+                        <div>삭제</div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="comment">
+                    <div class="username-date">
+                        <p class="username">김도형</p>
+                        <p class="date">21/07/05</p>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eum necessitatibus tempora
+                        voluptates. Ab blanditiis cumque dolorum ea eos perferendis sed vero voluptate. Assumenda
+                        distinctio dolores officia quasi quo repellendus?
+                    </div>
+                    <div class="edit">
+                        <div>수정</div>
+                        <div>삭제</div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="comment">
+                    <div class="username-date">
+                        <p class="username">김도형</p>
+                        <p class="date">21/07/05</p>
+                    </div>
+                    <div class="content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eum necessitatibus tempora
+                        voluptates. Ab blanditiis cumque dolorum ea eos perferendis sed vero voluptate. Assumenda
+                        distinctio dolores officia quasi quo repellendus?
+                    </div>
+                    <div class="edit">
+                        <div>수정</div>
+                        <div>삭제</div>
+                    </div>
+                    <hr>
+                </div>
+
+            </div>
+
+            <div class="add-thread" th:if="${username}" th:onclick="createThreadTmpl()">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <div class="add-thread" th:unless="${username}" th:onclick="redirect('/user/login', '로그인이 필요한 기능입니다.')">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="thread-creator" style="display: none">
+        <form action="/thread" method="post">
+            <div class="login-id-label">제목</div>
+            <input type="text" name="title" class="login-input-box">
+
+            <div class="login-id-label">내용</div>
+            <input type="text" name="content" class="thread-input-box">
+
+            <button class="login-id-submit">작성</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
