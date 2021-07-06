@@ -13,13 +13,13 @@
 </head>
 <body>
 <div id="login-form">
-    <div id="login-title">Log into Select Shop</div>
-    <button id="login-kakao-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=96123b42cd2737fa679b40c0121a6fc7&redirect_uri=http://localhost:8080/user/kakao/callback&response_type=code'">
+    <div id="login-title">게시판 로그인</div>
+    <button id="login-kakao-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=96123b42cd2737fa679b40c0121a6fc7&redirect_uri=http://52.79.249.16/user/kakao/callback&response_type=code'">
         카카오로 로그인하기
     </button>
     <br>
     <button class="login-id-btn" onclick="location.href='/user/signup'">
-        백엔드+프런트 회원 가입하기
+        회원 가입하기
     </button>
     <br>
     <div th:if="${loginError}" class="alert alert-danger" role="alert">로그인에 실패하였습니다.</div>

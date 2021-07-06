@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ThreadRepository extends JpaRepository<Thread, Long> {
-    List<Thread> findAllByOrderByCreatedAtDesc();
+    List<Thread> findAllByOrderByModifiedAtDesc();
 }

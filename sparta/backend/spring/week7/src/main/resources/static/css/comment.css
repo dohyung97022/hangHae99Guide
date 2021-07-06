@@ -1,0 +1,28 @@
+.comment-creator{
+    display: none;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+
+.comment-input-box{
+    width: 100%;
+    border-radius: 5px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.comment-creator form div, .comment-creator form button{
+    width: 100%;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.comment .edit div{
+    font-size: 10px;
+}
+

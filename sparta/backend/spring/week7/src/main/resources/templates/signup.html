@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="login-form">
-    <div id="login-title">Sign up Select Shop</div>
+    <div id="login-title">게시판 회원가입</div>
     <form method="post" action="/user/signup" >
         <div class="login-id-label">닉네임</div>
         <input type="text" name="username" placeholder="" class="login-input-box" id="username">
@@ -23,8 +23,8 @@
         <div class="login-id-label">비밀번호</div>
         <input type="password" name="password" class="login-input-box" id="password">
 
-        <p th:text="${msg}" id="form-msg">백엔드와 프런트 양쪽에서 다 확인합니다.</p>
-        <button class="login-id-submit">백엔드+프런트 회원 가입</button>
+        <p th:text="${msg}" id="form-msg"></p>
+        <button class="login-id-submit">회원 가입</button>
     </form>
 </div>
 </body>

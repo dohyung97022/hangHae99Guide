@@ -3,6 +3,7 @@ package com.example.week7.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
+@Setter
 public class Thread extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

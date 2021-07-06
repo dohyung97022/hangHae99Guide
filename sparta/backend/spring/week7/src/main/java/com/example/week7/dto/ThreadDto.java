@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CreateThreadDto {
+public class ThreadDto {
     private String title;
     private String content;
 }

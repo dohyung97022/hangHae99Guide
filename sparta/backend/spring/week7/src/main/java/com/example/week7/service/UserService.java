@@ -21,11 +21,10 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    private final PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final KakaoOAuth2 kakaoOAuth2;
     private final AuthenticationManager authenticationManager;
-
     private static final String ADMIN_TOKEN = "AAABnv/xRVklrnYxKZ0aHgTBcXukeZygoC";
 
     @Autowired
@@ -62,10 +61,6 @@ public class UserService {
 
         User user = new User(username, password, UserRole.USER);
         userRepository.save(user);
-
-//        UserDetailsImpl userDetails = new UserDetailsImpl(user);
-//        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
     public void kakaoLogin(String authorizedCode) {

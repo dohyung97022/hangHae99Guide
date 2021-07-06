@@ -9,9 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing // 시간 자동 변경이 가능하도록 합니다.
 @ServletComponentScan
 public class Week7Application {
-
     public static void main(String[] args) {
         SpringApplication.run(Week7Application.class, args);
     }
-
 }

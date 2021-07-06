@@ -28,9 +28,8 @@ public class User extends Timestamped {
         this.kakaoId = kakaoId;
     }
 
-    // ID가 자동으로 생성 및 증가합니다.
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 

@@ -1,8 +1,10 @@
 package com.example.week7.controller;
 
 import com.example.week7.dto.SignupRequestDto;
+import com.example.week7.security.UserDetailsImpl;
 import com.example.week7.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,11 @@ public class UserController {
 
     // 회원 로그인 페이지
     @GetMapping("/user/login")
-    public String login() {
+    public String login(@AuthenticationPrincipal UserDetailsImpl userDetails, RedirectAttributes redirectAttributes) {
+        if (userDetails != null){
+            redirectAttributes.addFlashAttribute("msg", "이미 로그인되어 있습니다.");
+            return "redirect:/";
+        }
         return "login";
     }
 
@@ -32,15 +38,22 @@ public class UserController {
     }
 
     @GetMapping("/user/kakao/callback")
-    public String kakaoLogin(String code) {
-        // authorizedCode: 카카오 서버로부터 받은 인가 코드
+    public String kakaoLogin(String code,@AuthenticationPrincipal UserDetailsImpl userDetails, RedirectAttributes redirectAttributes) {
+        if (userDetails != null){
+            redirectAttributes.addFlashAttribute("msg", "이미 로그인되어 있습니다.");
+            return "redirect:/";
+        }
         userService.kakaoLogin(code);
         return "redirect:/";
     }
 
     // 회원 가입 페이지
     @GetMapping("/user/signup")
-    public String signup(Model model) {
+    public String signup(Model model,@AuthenticationPrincipal UserDetailsImpl userDetails, RedirectAttributes redirectAttributes) {
+        if (userDetails != null){
+            redirectAttributes.addFlashAttribute("msg", "이미 로그인되어 있습니다.");
+            return "redirect:/";
+        }
         return "signup";
     }
 

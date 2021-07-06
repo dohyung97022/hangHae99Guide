@@ -344,7 +344,7 @@ button {
     font-style: normal;
     line-height: 1;
     letter-spacing: -0.96px;
-    text-align: left;
+    text-align: center;
     color: #212529;
 }
 
@@ -476,7 +476,7 @@ button {
 }
 
 .header p{
-    font-size: 15px;
+    font-size: 20px;
     color: #E8344E;
 }
 
@@ -828,4 +828,9 @@ input[type=submit] {
     padding: 1.75rem 1.25rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+}
+
+.fa-trash-alt{
+    margin-left: 5px;
+    color: #E8344E;
 }

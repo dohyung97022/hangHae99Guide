@@ -16,8 +16,9 @@
 
 #thread-container .item {
     padding: 20px;
-    background-color: #8e8383;
+    background-color: #c2b7b7;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #thread-container .item .article h1 {
