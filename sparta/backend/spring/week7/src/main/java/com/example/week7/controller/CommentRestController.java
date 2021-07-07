@@ -1,7 +1,6 @@
 package com.example.week7.controller;
 
 import com.example.week7.dto.DeleteResponseDto;
-import com.example.week7.repository.CommentRepository;
 import com.example.week7.security.UserDetailsImpl;
 import com.example.week7.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
